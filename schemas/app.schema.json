@@ -1,0 +1,135 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "app",
+ "type": "object",
+ "properties": {
+  "app_id": {
+   "type": "string",
+   "pattern": "^\\d+$"
+  },
+  "name": {
+   "type": "string"
+  },
+  "app_short": {
+   "type": "string"
+  },
+  "developer": {
+   "type": "string"
+  },
+  "category": {
+   "type": "string"
+  },
+  "price": {
+   "type": "number"
+  },
+  "price_label": {
+   "type": "string"
+  },
+  "in_app_purchases": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "price": {
+      "type": [
+       "string",
+       "null"
+      ]
+     }
+    },
+    "required": [
+     "name",
+     "price"
+    ],
+    "additionalProperties": true
+   }
+  },
+  "description": {
+   "type": "string"
+  },
+  "subtitle": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "listed_features": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "languages": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "listing_country": {
+   "type": "string"
+  },
+  "store_rating": {
+   "type": "object",
+   "additionalProperties": {
+    "type": [
+     "number",
+     "null"
+    ]
+   }
+  },
+  "store_rating_count": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "integer"
+   }
+  },
+  "versions": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "version": {
+      "type": "string"
+     },
+     "date": {
+      "type": "string"
+     },
+     "notes": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "version",
+     "date",
+     "notes"
+    ],
+    "additionalProperties": true
+   }
+  },
+  "resolution": {
+   "type": "object"
+  }
+ },
+ "required": [
+  "app_id",
+  "name",
+  "app_short",
+  "developer",
+  "category",
+  "price",
+  "price_label",
+  "in_app_purchases",
+  "description",
+  "listed_features",
+  "versions",
+  "store_rating",
+  "store_rating_count"
+ ],
+ "additionalProperties": true
+}

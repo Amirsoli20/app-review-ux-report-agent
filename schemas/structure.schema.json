@@ -1,0 +1,96 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "structure",
+ "type": "object",
+ "properties": {
+  "listed_features": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "categories": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "issue_ids": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     }
+    },
+    "required": [
+     "id",
+     "name",
+     "issue_ids"
+    ],
+    "additionalProperties": true
+   }
+  },
+  "stages": {
+   "type": "array",
+   "minItems": 1,
+   "items": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+     },
+     "order": {
+      "type": "integer"
+     },
+     "name": {
+      "type": "string"
+     },
+     "desc": {
+      "type": "string",
+      "maxLength": 40
+     },
+     "source": {
+      "enum": [
+       "listing_and_reviews",
+       "reviews_only"
+      ]
+     },
+     "listing_words": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     }
+    },
+    "required": [
+     "id",
+     "order",
+     "name",
+     "desc",
+     "source",
+     "listing_words"
+    ],
+    "additionalProperties": true
+   }
+  },
+  "location_to_stage": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "string"
+   }
+  }
+ },
+ "required": [
+  "listed_features",
+  "categories",
+  "stages"
+ ],
+ "additionalProperties": true
+}

@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "app-store": {
+      "command": ".venv/bin/python",
+      "args": ["scripts/mcp_app_store.py"]
+    }
+  }
+}

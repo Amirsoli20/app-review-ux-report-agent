@@ -1,0 +1,860 @@
+<title>{{TITLE}}</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* App Review UX Report template v1.1. Fixed design: do not edit per run. All content comes from report_data.json.
+   Layout: a Notion-style page. One centered column of blocks; databases and charts may run wider and scroll inside their own box. */
+:root {
+  --page: #ffffff; --text: #37352f; --muted: #787774; --faint: #a5a49f; --line: #e9e9e7; --hover: #f7f7f5; --callout: #f1f1ef;
+  --accent: #2383e2;
+  --neg: #d44c47; --pos: #448361; --neu: #b4b3ae; --mix: #cb912f;
+  --c4: #9065b0; --c5: #2a9d8f;
+  --sev1: #b33a35; --sev2: #e07a5f; --sev3: #f0b8a6; --sev4: #e3e2e0;
+  --t-red-bg: #ffe2dd; --t-red: #5d1715; --t-green-bg: #dbeddb; --t-green: #1c3829; --t-blue-bg: #d3e5ef; --t-blue: #183347;
+  --t-yellow-bg: #fdecc8; --t-yellow: #402c1b; --t-gray-bg: #e3e2e0; --t-gray: #32302c; --t-purple-bg: #e8deee; --t-purple: #412454;
+  --t-orange-bg: #fadec9; --t-orange: #49290e;
+  --font: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --page: #191919; --text: #d4d4d3; --muted: #9b9b9b; --faint: #6f6f6f; --line: #2f2f2f; --hover: #202020; --callout: #252525;
+    --accent: #529cca; --neg: #e5655f; --pos: #5fb38a; --neu: #6e6e6c; --mix: #d4a24c;
+    --c4: #b48ed1; --c5: #4fc1b2;
+    --sev1: #e5655f; --sev2: #c4664c; --sev3: #7d4a3d; --sev4: #3a3a3a;
+    --t-red-bg: #5e2e2b; --t-red: #f5d0cc; --t-green-bg: #2b4a3b; --t-green: #c7ead4; --t-blue-bg: #253d52; --t-blue: #cfe4f5;
+    --t-yellow-bg: #594a26; --t-yellow: #f6e3b8; --t-gray-bg: #3a3a3a; --t-gray: #dcdcdc; --t-purple-bg: #483353; --t-purple: #ead7f5;
+    --t-orange-bg: #5c3b23; --t-orange: #f6d8bf;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --page: #191919; --text: #d4d4d3; --muted: #9b9b9b; --faint: #6f6f6f; --line: #2f2f2f; --hover: #202020; --callout: #252525;
+  --accent: #529cca; --neg: #e5655f; --pos: #5fb38a; --neu: #6e6e6c; --mix: #d4a24c;
+  --c4: #b48ed1; --c5: #4fc1b2;
+  --sev1: #e5655f; --sev2: #c4664c; --sev3: #7d4a3d; --sev4: #3a3a3a;
+  --t-red-bg: #5e2e2b; --t-red: #f5d0cc; --t-green-bg: #2b4a3b; --t-green: #c7ead4; --t-blue-bg: #253d52; --t-blue: #cfe4f5;
+  --t-yellow-bg: #594a26; --t-yellow: #f6e3b8; --t-gray-bg: #3a3a3a; --t-gray: #dcdcdc; --t-purple-bg: #483353; --t-purple: #ead7f5;
+  --t-orange-bg: #5c3b23; --t-orange: #f6d8bf;
+  color-scheme: dark;
+}
+body { background: var(--page); color: var(--text); font-family: var(--font); font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+.page { max-width: 1000px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 56px 96px; }
+.col { max-width: 760px; }
+h1 { font-size: 40px; line-height: 1.2; font-weight: 700; margin: 12px 0 8px; letter-spacing: -0.01em; text-wrap: balance; }
+h2 { font-size: 24px; line-height: 1.3; font-weight: 600; margin: 0; text-wrap: balance; }
+h3 { font-size: 18px; line-height: 1.35; font-weight: 600; margin: 0; }
+p { margin: 0; }
+.muted { color: var(--muted); }
+.small { font-size: 14px; }
+.tiny { font-size: 12.5px; }
+.num { font-variant-numeric: tabular-nums; }
+b, strong { font-weight: 600; }
+.icon-page { width: 72px; height: 72px; border-radius: 10px; display: grid; place-items: center; background: var(--callout); }
+.block + .block { margin-top: 10px; }
+section { margin-top: 48px; display: grid; gap: 14px; }
+section > * { min-width: 0; }
+section > h2 { padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+hr { border: 0; border-top: 1px solid var(--line); margin: 24px 0; }
+
+/* properties */
+.props { display: grid; grid-template-columns: minmax(130px, 170px) 1fr; gap: 4px 12px; font-size: 14px; margin-top: 8px; }
+.props dt { color: var(--muted); display: flex; align-items: center; gap: 8px; padding: 4px 0; }
+.props dd { margin: 0; padding: 4px 0; min-width: 0; }
+.props svg { flex: none; }
+
+/* callout */
+.callout { display: grid; grid-template-columns: 24px 1fr; gap: 10px; padding: 16px 18px 16px 14px; background: var(--callout); border-radius: 6px; font-size: 15px; }
+.callout svg { margin-top: 2px; }
+
+/* pills */
+.pill { display: inline-flex; align-items: center; height: 20px; padding: 0 7px; border-radius: 4px; font-size: 12.5px; line-height: 1; white-space: nowrap; }
+.p-red { background: var(--t-red-bg); color: var(--t-red); } .p-green { background: var(--t-green-bg); color: var(--t-green); }
+.p-blue { background: var(--t-blue-bg); color: var(--t-blue); } .p-yellow { background: var(--t-yellow-bg); color: var(--t-yellow); }
+.p-gray { background: var(--t-gray-bg); color: var(--t-gray); } .p-purple { background: var(--t-purple-bg); color: var(--t-purple); }
+.p-orange { background: var(--t-orange-bg); color: var(--t-orange); }
+
+/* bulleted findings */
+ul.notion { margin: 0; padding-left: 24px; display: grid; gap: 6px; }
+ul.notion li::marker { color: var(--text); }
+
+/* toggles */
+details { border-radius: 4px; }
+details > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 22px 1fr; align-items: start; gap: 2px; padding: 3px 4px; border-radius: 4px; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary:hover { background: var(--hover); }
+details > summary .tri { width: 22px; height: 24px; display: grid; place-items: center; transition: transform 0.15s; color: var(--muted); }
+details[open] > summary .tri { transform: rotate(90deg); }
+details > .tbody { padding: 8px 0 8px 26px; display: grid; gap: 12px; }
+@media (prefers-reduced-motion: reduce) { details > summary .tri { transition: none; } }
+
+/* stat strip */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.stats > div { padding: 12px 14px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); margin: 0 -1px -1px 0; display: grid; gap: 2px; min-width: 0; }
+.stats .v { font-size: 24px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.stats .k { font-size: 12.5px; color: var(--muted); }
+
+/* database table */
+.db-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; border-bottom: 1px solid var(--line); }
+.views { display: flex; gap: 2px; flex-wrap: wrap; }
+.views button { font: inherit; font-size: 14px; color: var(--muted); background: none; border: 0; padding: 6px 8px 7px; border-bottom: 2px solid transparent; cursor: pointer; margin-bottom: -1px; }
+.views button[aria-selected="true"] { color: var(--text); border-bottom-color: var(--text); font-weight: 500; }
+.views button:hover { background: var(--hover); }
+.filter { display: flex; align-items: center; gap: 6px; font-size: 14px; color: var(--muted); padding: 4px 0; }
+.filter select { font: inherit; font-size: 14px; color: var(--accent); background: transparent; border: 1px solid var(--line); border-radius: 4px; padding: 2px 6px; }
+.scroll { overflow-x: auto; }
+table.db { border-collapse: collapse; width: 100%; font-size: 14px; }
+table.db th { text-align: left; font-weight: 400; color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); white-space: nowrap; font-size: 13.5px; }
+table.db td { padding: 7px 10px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); vertical-align: middle; }
+table.db th:last-child, table.db td:last-child { border-right: 0; }
+table.db tr:hover td { background: var(--hover); }
+table.db td.r, table.db th.r { text-align: right; }
+.iname { font-weight: 500; }
+.isub { color: var(--muted); font-size: 12.5px; }
+.flag { color: var(--mix); font-size: 12.5px; }
+
+/* charts */
+.chart { width: 100%; }
+.chart svg { display: block; overflow: visible; }
+.chart text { fill: var(--muted); font-family: var(--font); font-size: 12px; }
+.chart .lbl { fill: var(--text); font-size: 12.5px; }
+.chart .strong { fill: var(--text); font-weight: 600; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.caption { font-size: 13px; color: var(--muted); }
+.tip { position: fixed; z-index: 20; pointer-events: none; background: var(--text); color: var(--page); font-size: 12.5px; line-height: 1.4; padding: 6px 9px; border-radius: 5px; max-width: 260px; opacity: 0; transition: opacity 0.1s; }
+.tip.on { opacity: 1; }
+
+/* footer */
+.credit { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+.credit a { color: inherit; }
+
+/* quotes */
+blockquote { margin: 0; border-left: 3px solid var(--text); padding: 2px 0 2px 14px; display: grid; gap: 2px; font-size: 15px; }
+blockquote .tr { color: var(--muted); font-size: 14px; }
+blockquote .src { font-family: var(--mono); font-size: 12px; color: var(--faint); }
+
+.split2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.split2 > * { min-width: 0; }
+table.plain { border-collapse: collapse; width: 100%; font-size: 14px; }
+table.plain th { text-align: left; font-weight: 400; color: var(--muted); padding: 6px 8px; border-bottom: 1px solid var(--line); }
+table.plain td { padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.plain td.r, table.plain th.r { text-align: right; }
+.pill.outline { background: transparent; border: 1px solid var(--line); color: var(--muted); }
+.jm { display: grid; border-top: 1px solid var(--line); }
+.jm > div { padding: 8px 10px; border-bottom: 1px solid var(--line); font-size: 13.5px; min-width: 0; line-height: 1.4; }
+.jm .jm-l { color: var(--muted); font-size: 12.5px; }
+.jm-h { display: grid; gap: 2px; align-content: start; }
+.jm-step { font-size: 11.5px; color: var(--faint); }
+.jm .jm-curve { padding: 0; }
+.jm-prob { border-left: 2px solid var(--neg); padding-left: 7px; display: block; }
+.jm-str { border-left: 2px solid var(--pos); padding-left: 7px; display: block; }
+.jm-bar { height: 6px; background: var(--hover); border-radius: 3px; margin-top: 4px; overflow: hidden; }
+.jm-bar i { display: block; height: 100%; background: var(--sev1); }
+.tm { display: grid; grid-template-columns: minmax(160px, 220px) 200px 1fr; border-top: 1px solid var(--line); }
+.tm > div { padding: 9px 8px; border-bottom: 1px solid var(--line); min-width: 0; display: flex; align-items: center; flex-wrap: wrap; gap: 4px; font-size: 14px; }
+@media (max-width: 640px) { .tm { grid-template-columns: 1fr; } .tm > div { border-bottom: 0; padding: 3px 0; } .tm > div.tm-last { border-bottom: 1px solid var(--line); padding-bottom: 10px; } }
+.vh { display: grid; gap: 0; }
+.vh-row { display: grid; grid-template-columns: 16px 1fr; gap: 10px; }
+.vh-row .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--faint); margin-top: 7px; }
+.vh-row:first-child .dot { background: var(--accent); }
+.vh-row .b { padding-bottom: 12px; font-size: 14px; display: grid; gap: 1px; }
+table.plain tr.sel td { background: var(--hover); }
+#timeTable tbody tr { cursor: default; }
+.swatch { display: inline-block; width: 14px; height: 3px; border-radius: 2px; vertical-align: 4px; margin-right: 8px; }
+blockquote.listing { border-left-color: var(--accent); font-size: 15px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (max-width: 560px) { h1 { font-size: 32px; } .page { padding-block: 32px 64px; } .props { grid-template-columns: 1fr; gap: 0; } .props dt { padding-bottom: 0; } }
+
+/* patterns chart */
+.pat-head { display: grid; gap: 2px; }
+.pat-title { font-size: 19px; font-weight: 600; line-height: 1.35; text-wrap: balance; }
+.pat-sub { font-size: 14px; color: var(--muted); }
+/* quotes */
+.qgroup { display: grid; gap: 10px; }
+.qgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 14px; }
+@media (max-width: 420px) { .qgrid { grid-template-columns: 1fr; } }
+.qcard { border: 1px solid var(--line); border-left-width: 3px; border-radius: 6px; padding: 14px 16px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.qcard.neg { border-left-color: var(--neg); } .qcard.pos { border-left-color: var(--pos); }
+.qcard .qh { display: grid; gap: 6px; justify-items: start; font-size: 15px; }
+.qcard .qn { font-size: 12.5px; color: var(--muted); }
+.qcard .qt { font-size: 17px; line-height: 1.45; }
+.qcard .qtr { font-size: 14px; color: var(--muted); }
+.qcard .qs { font-family: var(--mono); font-size: 12px; color: var(--faint); }
+.qcard .qf { font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 8px; }
+</style>
+
+<div class="page">
+  <div class="icon-page" aria-hidden="true">
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="5" y="22" width="6" height="12" rx="1.5" fill="var(--neg)"/><rect x="14" y="14" width="6" height="20" rx="1.5" fill="var(--mix)"/><rect x="23" y="18" width="6" height="16" rx="1.5" fill="var(--accent)"/><rect x="32" y="8" width="5" height="26" rx="1.5" fill="var(--pos)"/></svg>
+  </div>
+  <h1 id="pageTitle"></h1>
+  <dl class="props" id="headProps"></dl>
+
+  <div class="col" style="margin-top:20px">
+    <div class="callout">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="var(--mix)" stroke-width="1.7"><circle cx="10" cy="10" r="8"/><path d="M10 6v5M10 14h.01"/></svg>
+      <div id="notice"></div>
+    </div>
+  </div>
+
+  <section id="summary" class="col">
+    <h2>Summary</h2>
+    <ul class="notion" id="summaryList"></ul>
+  </section>
+
+  <section id="about">
+    <h2>About the app</h2>
+    <p class="col">From the App Store listing, read at the start of the run. The agent uses it, together with the reviews, to name this app's journey stages and categories.</p>
+    <div class="split2" style="align-items:start">
+      <div style="display:grid;gap:14px">
+        <blockquote class="listing"><span id="aboutDesc"></span><span class="src" id="aboutDescSrc"></span></blockquote>
+        <dl class="props" style="margin:0" id="aboutProps"></dl>
+        <div><div class="muted tiny" style="margin-bottom:6px">Features named in the listing</div><div id="aboutFeatures" style="display:flex;flex-wrap:wrap;gap:6px"></div></div>
+      </div>
+      <div style="display:grid;gap:10px">
+        <h3>Version history</h3>
+        <div class="vh" id="aboutVersions"></div>
+        <p class="caption" id="aboutRatingNote"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="overview">
+    <h2>Data overview</h2>
+    <div class="stats" id="statStrip"></div>
+    <h3>What each review contains, by star rating</h3>
+    <div class="legend"><span><i style="background:var(--neg)"></i>Problem only</span><span><i style="background:var(--mix)"></i>Problem and praise</span><span><i style="background:var(--pos)"></i>Praise only</span><span><i style="background:var(--neu)"></i>Neither</span></div>
+    <div class="chart" id="mixChart"></div>
+    <p class="caption col" id="mixCaption"></p>
+    <details id="countryCoverage">
+      <summary><span class="tri"><svg width="10" height="10" viewBox="0 0 10 10"><path d="M3 1l4 4-4 4z" fill="currentColor"/></svg></span><span><b>Country coverage</b> <span class="muted small"><span data-v="n_countries"></span> countries holding <span data-v="coverage"></span>% of the app's ratings</span></span></summary>
+      <div class="tbody">
+        <p class="small muted">The agent checked rating counts in <span data-v="candidates"></span> App Store countries and kept the largest until they covered <span data-v="target"></span>% of ratings. Apple shares at most the 500 newest reviews per country, so time windows differ. Each country's share in the totals is weighted by its rating count.</p>
+        <div class="scroll"><table class="plain" id="countryTable"><thead><tr><th>Country</th><th class="r">Ratings</th><th class="r">Weight</th><th class="r">Reviews</th><th>Window</th><th>Language</th></tr></thead><tbody></tbody></table></div>
+      </div>
+    </details>
+  </section>
+
+  <section id="sentiment">
+    <h2>What reviewers feel</h2>
+    <p class="col">Feeling expressed in each of the <span data-v="n_statements_kept"></span> statements, with 95% confidence intervals. A review can contain positive and negative statements at once.</p>
+    <div class="chart" id="sentOverall"></div>
+    <h3 style="margin-top:12px">Feeling by category</h3>
+    <div class="legend"><span><i style="background:var(--neg)"></i>Negative</span><span><i style="background:var(--mix)"></i>Mixed</span><span><i style="background:var(--neu)"></i>Neutral</span><span><i style="background:var(--pos)"></i>Positive</span></div>
+    <div class="chart" id="divChart"></div>
+    <p class="caption">Bars centre on the neutral midpoint: negative and half of mixed and neutral extend left, positive and the other half extend right. Net sentiment = (positive − negative) ÷ all statements in the category, from −100 to +100. Sorted by net sentiment. The <span data-v="n_categories"></span> categories were formed from <span data-v="app_short"></span>'s own issues; another app gets its own set.</p>
+  </section>
+
+  <section id="patterns">
+    <h2>Problem and strength patterns</h2>
+    <div class="pat-head"><div class="pat-title" id="patProblemsTitle"></div><div class="pat-sub">Number of reviews that mention each problem (out of <span data-v="n_reviews"></span>)</div></div>
+    <div class="legend"><span><i style="background:var(--accent)"></i>From 1 and 2 star reviews</span><span><i style="background:var(--neu)"></i>From 3 to 5 star reviews</span></div>
+    <div class="chart" id="patProblems"></div>
+    <div class="pat-head" style="margin-top:14px"><div class="pat-title" id="patStrengthsTitle"></div><div class="pat-sub">Number of reviews that mention each strength (out of <span data-v="n_reviews"></span>)</div></div>
+    <div class="legend"><span><i style="background:var(--pos)"></i>From 4 and 5 star reviews</span><span><i style="background:var(--neu)"></i>From 1 to 3 star reviews</span></div>
+    <div class="chart" id="patStrengths"></div>
+    <p class="col" id="patCaption"></p>
+  </section>
+
+  <section id="quotes">
+    <h2>In reviewers' words</h2>
+    <p class="col">One representative quote for each of the most raised problems and strengths. Each quote is the statement closest to the centre of its issue's group, among statements under 40 words: the most typical way reviewers describe it.</p>
+    <div class="qgroup"><h3>Most raised problems</h3><div class="qgrid" id="quotesProblems"></div></div>
+    <div class="qgroup" style="margin-top:8px"><h3>Most raised strengths</h3><div class="qgrid" id="quotesStrengths"></div></div>
+  </section>
+
+  <section id="board">
+    <h2>Issue board</h2>
+    <p class="col">Every issue raised by at least <span data-v="threshold"></span> different reviews. Share is a stratified estimate across countries, weighted by each country's rating count. Choose a country to see its own shares.</p>
+    <div>
+      <div class="db-bar">
+        <div class="views" role="tablist" id="views">
+          <button role="tab" aria-selected="true" data-v-view="all">All issues</button>
+          <button role="tab" aria-selected="false" data-v-view="problem">Problems</button>
+          <button role="tab" aria-selected="false" data-v-view="Praise">Strengths</button>
+          <button role="tab" aria-selected="false" data-v-view="Request">Requests</button>
+        </div>
+        <label class="filter" for="countrySel" id="countryFilter">Country <select id="countrySel"><option value="all">All, weighted</option></select></label>
+      </div>
+      <div class="scroll"><table class="db" id="boardTable">
+        <thead><tr>
+          <th style="min-width:210px">Issue</th><th>Type</th><th style="min-width:178px">Share of reviews, 95% CI</th><th class="r">Reviews</th><th style="min-width:138px">Rating gap (★)</th><th style="min-width:100px">Severity</th><th>Across countries</th><th class="r">κ</th>
+        </tr></thead><tbody></tbody></table></div>
+    </div>
+    <div class="legend tiny"><span><i style="background:var(--sev1)"></i>Blocker</span><span><i style="background:var(--sev2)"></i>Major</span><span><i style="background:var(--sev3)"></i>Minor</span><span><i style="background:var(--sev4)"></i>Cosmetic</span></div>
+    <details>
+      <summary><span class="tri"><svg width="10" height="10" viewBox="0 0 10 10"><path d="M3 1l4 4-4 4z" fill="currentColor"/></svg></span><span><b>How to read the columns</b></span></summary>
+      <div class="tbody small">
+        <p><b>Share of reviews.</b> The dot is the estimate; the line is the 95% confidence interval. Where two intervals overlap a lot, the two issues may not truly differ.</p>
+        <p><b>Rating gap.</b> Mean stars of reviews that raise the issue minus mean stars of reviews that don't, with a 95% CI (Welch). Left of the line means lower ratings. This is a difference, not a cause. Hover it for mean, median, mode and SD.</p>
+        <p><b>Across countries.</b> Coefficient of variation (CV) of the issue's share across the countries. Under 30%: even. 30 to 60%: varies. Over 60%: concentrated in few countries.</p>
+        <p><b>κ.</b> Cohen's kappa between the main labeling pass and an independent second pass. Below 0.70 is flagged as less reliable.</p>
+      </div>
+    </details>
+    <p class="caption"><span data-v="long_tail_issues"></span> rarer issues, each below <span data-v="threshold"></span> reviews, appear in <span data-v="long_tail_reviews"></span> reviews (<span data-v="long_tail_pct"></span>%) together. <span data-v="other_statements"></span> statements (<span data-v="other_pct"></span>%) fit no issue.</p>
+  </section>
+
+  <section id="impact">
+    <h2>Frequency and rating gap</h2>
+    <p class="col">Each problem placed by how often it is raised (across) and how much lower its reviewers' ratings are (down). Circle size shows the number of reviews. Dashed lines mark the median of each axis.</p>
+    <div class="chart" id="scatterChart"></div>
+  </section>
+
+  <section id="teams">
+    <h2>Likely owning team</h2>
+    <p class="col">Each recurring problem routed to the team that usually owns that kind of problem, based on its type and definition. Bars show the share of reviews raising at least one problem routed to the team as primary owner, with 95% CIs. Outlined issues are routed to the team as a secondary owner. This is a routing aid; it says nothing about any team's performance.</p>
+    <div id="teamList"></div>
+  </section>
+
+  <section id="journey">
+    <h2>The journey in reviews</h2>
+    <p class="col"><span data-v="app_short"></span>'s journey as built by the agent from the App Store listing and from where reviewers place their comments. The curve shows net sentiment at each stage: above the line, more praise than complaints; below it, more complaints. Circle size shows how many statements refer to the stage.</p>
+    <div class="scroll"><div id="journeyMap"></div></div>
+    <p class="caption"><span data-v="unassigned"></span> statements (<span data-v="unassigned_pct"></span>%) are general, such as "great app", or apply to the whole app, and are not tied to a stage. Blocker share is the share of problem statements at the stage where the reviewer could not finish a task, or lost money or data.</p>
+  </section>
+
+  <section id="time">
+    <h2>Issues over time</h2>
+    <p class="col">Weekly share of reviews raising each of the five most common problems, by the date the review was written. Dashed lines mark releases from the listing's version history. The shaded area is the last four weeks, compared with the weeks before in the table below. Hover a row to see that line's 95% band.</p>
+    <div class="chart" id="timeChart"></div>
+    <div class="scroll"><table class="plain" id="timeTable" style="max-width:820px"><thead><tr><th>Problem</th><th class="r">Earlier weeks</th><th class="r">Last 4 weeks</th><th class="r">Change</th><th class="r">Adjusted p</th><th></th></tr></thead><tbody></tbody></table></div>
+    <p class="caption col">Each week's share is weighted by rating count across the countries with reviews that week. Apple returns only the newest 500 reviews per country, so early weeks hold fewer countries; hollow points mark weeks with fewer than 50 reviews. The earlier vs recent comparison is made within each country (Cochran–Mantel–Haenszel test) and adjusted for the number of comparisons (Holm), so a change in country mix cannot create a false trend.<span id="timeExcluded"></span></p>
+  </section>
+
+  <section id="countries">
+    <h2>Country differences</h2>
+    <details>
+      <summary><span class="tri"><svg width="10" height="10" viewBox="0 0 10 10"><path d="M3 1l4 4-4 4z" fill="currentColor"/></svg></span><span><b>Share of each country's reviews, per problem</b> <span class="muted small" id="countryToggleLabel"></span></span></summary>
+      <div class="tbody">
+        <p class="small muted">Chi-square test of independence between country and mention of the problem, adjusted for the number of tests (Holm). p &lt; 0.05 means the shares are unlikely to be equal across countries. Cramér's V shows how strong the difference is: under 0.1 is negligible, 0.1 to 0.3 is small to moderate, over 0.3 is strong.</p>
+        <div class="scroll"><div class="chart" id="heatChart" style="min-width:680px"></div></div>
+      </div>
+    </details>
+  </section>
+
+  <section id="reliability">
+    <h2>Reliability</h2>
+    <div class="split2">
+      <div class="block" style="display:grid;gap:10px">
+        <h3>Label agreement per issue</h3>
+        <div class="chart" id="kappaChart"></div>
+        <p class="caption">Cohen's κ between two independent AI passes on a 10% random sample (<span data-v="second_pass_n"></span> statements). Bands follow Landis and Koch. Issues below the 0.70 threshold are flagged: <span data-v="kappa_flagged"></span>.</p>
+      </div>
+      <div class="block" style="display:grid;gap:8px">
+        <h3>Quality gates</h3>
+        <table class="plain"><tbody id="gateRows"></tbody></table>
+        <h3 style="margin-top:8px">Limits</h3>
+        <ul class="notion small" id="limitList"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="stats">
+    <h2>Reading the statistics</h2>
+    <p class="col">What the numbers mean, with one example each.</p>
+    <div class="scroll"><table class="plain" id="glossary"><thead><tr><th style="min-width:130px">Measure</th><th style="min-width:200px">Meaning</th><th style="min-width:220px">Example</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <footer class="credit">© <span id="creditYear"></span> Amir Soltanzade · <a href="mailto:amirsoli2048@gmail.com">amirsoli2048@gmail.com</a></footer>
+</div>
+<div class="tip" id="tip" role="tooltip"></div>
+
+<script id="report-data" type="application/json">__REPORT_DATA__</script>
+<script>
+(function () {
+  "use strict";
+  var D = JSON.parse(document.getElementById("report-data").textContent);
+  var NS = "http://www.w3.org/2000/svg";
+  var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  var tip = document.getElementById("tip");
+
+  // ---------- helpers ----------
+  function el(t, c, x) { var e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; }
+  function s(t, a, x) { var e = document.createElementNS(NS, t); for (var k in a) e.setAttribute(k, a[k]); if (x != null) e.textContent = x; return e; }
+  function fmt(n) { return Number(n).toLocaleString("en-US"); }
+  function f1(n) { return (Math.round(n * 10) / 10).toFixed(1); }
+  function sign(n, d) { return (n > 0 ? "+" : n < 0 ? "−" : "") + Math.abs(n).toFixed(d == null ? 0 : d); }
+  function longDate(iso) { var p = iso.split("-"); return MONTHS[Number(p[1]) - 1] + " " + Number(p[2]) + ", " + p[0]; }
+  function shortDate(iso) { var p = iso.split("-"); return MONTHS[Number(p[1]) - 1] + " " + Number(p[2]); }
+  function rich(node, str) { String(str).split("**").forEach(function (part, i) { node.appendChild(i % 2 ? el("b", null, part) : document.createTextNode(part)); }); return node; }
+  function wilson(k, n) { var z = 1.96, p = k / n, d = 1 + z * z / n, c = p + z * z / (2 * n), h = z * Math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)); return [100 * Math.max(0, (c - h) / d), 100 * (c + h) / d]; }
+  function showTip(e, text) { tip.textContent = ""; text.split("\n").forEach(function (l, i) { if (i) tip.appendChild(document.createElement("br")); tip.appendChild(document.createTextNode(l)); }); tip.classList.add("on"); moveTip(e); }
+  function moveTip(e) { var w = tip.offsetWidth, h = tip.offsetHeight, x = e.clientX + 14, y = e.clientY + 14; if (x + w > innerWidth - 8) x = e.clientX - w - 14; if (y + h > innerHeight - 8) y = e.clientY - h - 14; tip.style.left = Math.max(8, x) + "px"; tip.style.top = Math.max(8, y) + "px"; }
+  function hideTip() { tip.classList.remove("on"); }
+  function hover(node, text) { node.addEventListener("mousemove", function (e) { showTip(e, text); }); node.addEventListener("mouseleave", hideTip); node.style.cursor = "default"; }
+  function width(id) { var n = document.getElementById(id); return Math.max(280, n.clientWidth || 600); }
+  function hide(id) { var n = document.getElementById(id); if (n) n.hidden = true; }
+
+  var M = D.meta;
+  var byId = {}; D.issues.forEach(function (i) { byId[i.id] = i; });
+  var typePill = { Bug: "p-red", Complaint: "p-orange", Request: "p-blue", Praise: "p-green" };
+  var problems = D.issues.filter(function (i) { return i.type !== "Praise"; }).sort(function (a, b) { return b.n - a.n; });
+  var strengths = D.issues.filter(function (i) { return i.type === "Praise"; }).sort(function (a, b) { return b.n - a.n; });
+  var countryByCode = {}; D.countries.forEach(function (c) { countryByCode[c.code] = c; });
+  var multiCountry = D.countries.length > 1;
+
+  // ---------- bound values ----------
+  var V = {
+    app_short: M.app_short, n_reviews: fmt(M.n_reviews), n_statements_kept: fmt(M.n_statements_kept), threshold: fmt(M.repetition_threshold),
+    n_countries: D.countries.length, coverage: f1(D.country_selection.coverage), candidates: D.country_selection.candidates, target: D.country_selection.target,
+    n_categories: D.sentiment.categories.length, n_recurring: D.issues.length,
+    long_tail_issues: fmt(D.board.long_tail_issues), long_tail_reviews: fmt(D.board.long_tail_reviews), long_tail_pct: f1(100 * D.board.long_tail_reviews / M.n_reviews),
+    other_statements: fmt(D.board.other_statements), other_pct: f1(100 * D.board.other_statements / M.n_statements_kept),
+    unassigned: fmt(D.journey.unassigned), unassigned_pct: Math.round(100 * D.journey.unassigned / M.n_statements_kept),
+    second_pass_n: fmt(M.second_pass_n),
+    kappa_flagged: (function () { var f = D.issues.filter(function (i) { return i.kappa < 0.7; }); return f.length ? f.map(function (i) { return i.name + " (" + i.kappa.toFixed(2) + ")"; }).join(", ") : "none"; })()
+  };
+  document.querySelectorAll("[data-v]").forEach(function (n) { var v = V[n.getAttribute("data-v")]; n.textContent = v == null ? "" : String(v); });
+
+  // ---------- header ----------
+  document.getElementById("pageTitle").textContent = M.app_short + ": App Store Review Report";
+  function kappaBand(k) { return k > 0.8 ? ["almost perfect", "p-green"] : k > 0.6 ? ["substantial", "p-blue"] : k > 0.4 ? ["moderate", "p-yellow"] : ["weak", "p-red"]; }
+  var ICON = {
+    app: '<rect x="2" y="2" width="12" height="12" rx="3" fill="var(--muted)"/>',
+    date: '<rect x="2" y="3" width="12" height="11" rx="2"/><path d="M2 7h12M5 1.5v3M11 1.5v3"/>',
+    globe: '<circle cx="8" cy="8" r="6"/><path d="M2 8h12M8 2c2 2 2 10 0 12M8 2c-2 2-2 10 0 12"/>',
+    chat: '<path d="M3 3h10v8H7l-4 3z"/>', check: '<path d="M3 8l3 3 7-7"/>', arrow: '<path d="M2 8h12M10 4l4 4-4 4"/>'
+  };
+  function prop(dl, icon, label, valueNode) {
+    var dt = el("dt");
+    if (icon) { var sv = s("svg", { width: 14, height: 14, viewBox: "0 0 16 16", fill: "none", stroke: "var(--muted)", "stroke-width": 1.5 }); sv.innerHTML = ICON[icon]; dt.appendChild(sv); }
+    dt.appendChild(document.createTextNode(label)); dl.appendChild(dt);
+    var dd = el("dd"); if (typeof valueNode === "string") dd.textContent = valueNode; else dd.appendChild(valueNode); dl.appendChild(dd);
+  }
+  var hp = document.getElementById("headProps");
+  var appV = el("span"); appV.appendChild(document.createTextNode(M.app_name + " ")); appV.appendChild(el("span", "muted", "id" + M.app_id)); prop(hp, "app", "App", appV);
+  prop(hp, "date", "Run date", longDate(M.run_date));
+  var cv = el("span"); M.countries.forEach(function (c, i) { if (i) cv.appendChild(document.createTextNode(" ")); cv.appendChild(el("span", "pill p-gray", c)); }); prop(hp, "globe", "Countries", cv);
+  prop(hp, "chat", "Reviews", fmt(M.n_reviews) + " reviews · " + fmt(M.n_statements) + " statements");
+  var kb = kappaBand(M.kappa), kv = el("span"); kv.appendChild(document.createTextNode("Cohen's κ = " + M.kappa.toFixed(2) + " ")); kv.appendChild(el("span", "pill " + kb[1], kb[0])); prop(hp, "check", "Label agreement", kv);
+  var ps = M.period_start.split("-"), pe = M.period_end.split("-");
+  prop(hp, "arrow", "Period", ps[0] === pe[0] ? shortDate(M.period_start) + " to " + longDate(M.period_end) : longDate(M.period_start) + " to " + longDate(M.period_end));
+  rich(document.getElementById("notice"), (M.notice ? M.notice + " " : "") + "This report describes what reviewers say. It does not recommend changes.");
+
+  // ---------- summary ----------
+  var sl = document.getElementById("summaryList");
+  D.summary.forEach(function (t) { sl.appendChild(rich(el("li"), t)); });
+
+  // ---------- about ----------
+  var A = D.about;
+  document.getElementById("aboutDesc").textContent = A.description;
+  document.getElementById("aboutDescSrc").textContent = A.description_source;
+  var ap = document.getElementById("aboutProps");
+  prop(ap, null, "Developer", A.developer); prop(ap, null, "Category", A.category); prop(ap, null, "Price", A.price);
+  prop(ap, null, "Current version", A.current_version + ", released " + longDate(A.current_version_date));
+  prop(ap, null, "Store rating", A.store_rating.toFixed(1) + " (" + A.store_rating_country + " store, " + fmt(A.store_rating_count) + " ratings)");
+  prop(ap, null, "Languages", A.languages_label);
+  var af = document.getElementById("aboutFeatures"); A.features.forEach(function (f) { af.appendChild(el("span", "pill p-blue", f)); });
+  var av = document.getElementById("aboutVersions");
+  A.versions.forEach(function (v) { var r = el("div", "vh-row"); r.appendChild(el("span", "dot")); var b = el("div", "b"); b.appendChild(el("b", null, v.version + " · " + shortDate(v.date))); b.appendChild(el("span", "muted", v.notes)); r.appendChild(b); av.appendChild(r); });
+  document.getElementById("aboutRatingNote").textContent = "Written reviews in this sample average " + M.mean_stars.toFixed(2) + "★, " + (M.mean_stars < A.store_rating ? "lower" : "higher") + " than the store rating of " + A.store_rating.toFixed(1) + "★, which also counts ratings left without text.";
+
+  // ---------- overview ----------
+  var mixTot = function (st) { return D.mix[st].reduce(function (a, b) { return a + b; }, 0); };
+  var probAny = 0, praiseAny = 0; ["1", "2", "3", "4", "5"].forEach(function (st) { var v = D.mix[st]; probAny += v[0] + v[1]; praiseAny += v[1] + v[2]; });
+  var strip = [[fmt(M.n_reviews), "Reviews analysed"], [fmt(M.n_statements), "Statements extracted"], [f1(100 * probAny / M.n_reviews) + "%", "Reviews raising a problem"], [f1(100 * praiseAny / M.n_reviews) + "%", "Reviews with praise"], [shortDate(M.period_start).slice(0, 3) + " " + Number(ps[2]) + " to " + shortDate(M.period_end).slice(0, 3) + " " + Number(pe[2]), "Period covered"], [String(M.languages.length), "Languages: " + M.languages.join(", ")]];
+  var stEl = document.getElementById("statStrip");
+  strip.forEach(function (x) { var d = el("div"); d.appendChild(el("span", "v", x[0])); d.appendChild(el("span", "k", x[1])); stEl.appendChild(d); });
+  (function () {
+    var hiK = D.mix["4"][0] + D.mix["4"][1] + D.mix["5"][0] + D.mix["5"][1], hiN = mixTot("4") + mixTot("5");
+    var loK = D.mix["1"][1] + D.mix["1"][2] + D.mix["2"][1] + D.mix["2"][2], loN = mixTot("1") + mixTot("2");
+    var hc = wilson(hiK, hiN), lc = wilson(loK, loN);
+    document.getElementById("mixCaption").textContent = "Star ratings and review text do not always agree. " + f1(100 * hiK / hiN) + "% of 4 and 5 star reviews report at least one problem (95% CI " + f1(hc[0]) + " to " + f1(hc[1]) + "%), and " + f1(100 * loK / loN) + "% of 1 and 2 star reviews praise something (" + f1(lc[0]) + " to " + f1(lc[1]) + "%). The issue board counts problems from every review, whatever its rating.";
+  })();
+  var ct = document.querySelector("#countryTable tbody");
+  D.countries.forEach(function (c) { var tr = el("tr"); [c.name + " (" + c.code + ")", fmt(c.ratings), c.weight.toFixed(1) + "%", fmt(c.n), c.window + " (" + c.days + " days)", c.lang].forEach(function (v, i) { tr.appendChild(el("td", i && i < 4 ? "r num" : null, v)); }); ct.appendChild(tr); });
+
+  function drawMix() {
+    var id = "mixChart", host = document.getElementById(id); host.textContent = "";
+    var W = width(id), LBL = 46, RN = 70, rh = 34, T = 6, H = T + 5 * rh;
+    var svg = s("svg", { viewBox: "0 0 " + W + " " + H, width: "100%", role: "img", "aria-label": "What each review contains by star rating" });
+    var cols = ["var(--neg)", "var(--mix)", "var(--pos)", "var(--neu)"], labs = ["Problem only", "Problem and praise", "Praise only", "Neither"];
+    ["5", "4", "3", "2", "1"].forEach(function (st, r) {
+      var v = D.mix[st], tot = mixTot(st), y = T + r * rh, x = LBL, pw = W - LBL - RN;
+      svg.appendChild(s("text", { x: LBL - 10, y: y + 17, "text-anchor": "end", class: "lbl" }, st + " ★"));
+      v.forEach(function (c, k) {
+        var w = pw * c / tot, rc = s("rect", { x: x, y: y + 4, width: Math.max(0, w - 1.5), height: 20, fill: cols[k] });
+        hover(rc, st + "★ reviews: " + labs[k] + "\n" + fmt(c) + " of " + fmt(tot) + " (" + f1(100 * c / tot) + "%)"); svg.appendChild(rc);
+        if (w > 40) { var t = s("text", { x: x + 6, y: y + 18, "font-size": 12 }, Math.round(100 * c / tot) + "%"); t.style.fill = k === 3 ? "var(--text)" : "#fff"; svg.appendChild(t); }
+        x += w;
+      });
+      svg.appendChild(s("text", { x: W - 2, y: y + 18, "text-anchor": "end" }, fmt(tot)));
+    });
+    host.appendChild(svg);
+  }
+
+  // ---------- sentiment ----------
+  var sentOrder = [["negative", "Negative", "var(--neg)"], ["mixed", "Mixed", "var(--mix)"], ["neutral", "Neutral", "var(--neu)"], ["positive", "Positive", "var(--pos)"]];
+  function drawSentOverall() {
+    var id = "sentOverall", host = document.getElementById(id); host.textContent = "";
+    var W = width(id), H = 92, x0 = 0;
+    var svg = s("svg", { viewBox: "0 0 " + W + " " + H, width: "100%", role: "img", "aria-label": "Overall feeling of statements" });
+    sentOrder.forEach(function (o) {
+      var v = D.sentiment.overall[o[0]], w = W * v.p / 100;
+      var r = s("rect", { x: x0, y: 30, width: Math.max(0, w - 2), height: 28, fill: o[2], rx: 2 });
+      hover(r, o[1] + ": " + v.p + "% (" + fmt(v.n) + " statements)\n95% CI " + v.lo + " to " + v.hi + "%"); svg.appendChild(r);
+      var big = w > 70;
+      svg.appendChild(s("text", { x: x0, y: 20, class: "strong" }, big ? o[1] + " " + v.p + "%" : v.p + "%"));
+      svg.appendChild(s("text", { x: x0, y: 76 }, big ? v.lo + " to " + v.hi + "%" : ""));
+      x0 += w;
+    });
+    host.appendChild(svg);
+  }
+  function drawDiverging() {
+    var id = "divChart", host = document.getElementById(id); host.textContent = "";
+    var rows = D.sentiment.categories.slice().sort(function (a, b) { return a.net - b.net; });
+    var W = width(id), narrow = W < 560, LBL = narrow ? 0 : 170, NET = 58, rh = narrow ? 44 : 30, T = 22, H = T + rows.length * rh + 8;
+    var plotW = W - LBL - NET - 8, mid = LBL + plotW / 2, sc = plotW / 2;
+    var svg = s("svg", { viewBox: "0 0 " + W + " " + H, width: "100%", role: "img", "aria-label": "Feeling by category" });
+    [-100, -50, 0, 50, 100].forEach(function (t) { var x = mid + sc * t / 100; svg.appendChild(s("line", { x1: x, x2: x, y1: T - 4, y2: H - 6, stroke: "var(--line)", "stroke-width": t === 0 ? 1.5 : 1 })); svg.appendChild(s("text", { x: x, y: 12, "text-anchor": "middle" }, Math.abs(t) + "%")); });
+    svg.appendChild(s("text", { x: W, y: 12, "text-anchor": "end" }, "Net"));
+    var colors = { neg: "var(--neg)", mixed: "var(--mix)", neutral: "var(--neu)", pos: "var(--pos)" };
+    rows.forEach(function (r, i) {
+      var y = T + i * rh + (narrow ? 18 : 4), bh = 18, t = r.total;
+      var left = [["neg", r.neg / t], ["mixed", r.mixed / t / 2], ["neutral", r.neutral / t / 2]];
+      var right = [["neutral", r.neutral / t / 2], ["mixed", r.mixed / t / 2], ["pos", r.pos / t]];
+      var tipTxt = r.name + " (" + fmt(t) + " statements)\nNegative " + f1(100 * r.neg / t) + "% · Mixed " + f1(100 * r.mixed / t) + "%\nNeutral " + f1(100 * r.neutral / t) + "% · Positive " + f1(100 * r.pos / t) + "%\nNet sentiment " + sign(Math.round(r.net));
+      var x = mid; left.slice().reverse().forEach(function (p) { var w = sc * p[1]; x -= w; var rc = s("rect", { x: x, y: y, width: w, height: bh, fill: colors[p[0]] }); hover(rc, tipTxt); svg.appendChild(rc); });
+      x = mid; right.forEach(function (p) { var w = sc * p[1]; var rc = s("rect", { x: x, y: y, width: w, height: bh, fill: colors[p[0]] }); hover(rc, tipTxt); svg.appendChild(rc); x += w; });
+      if (narrow) svg.appendChild(s("text", { x: LBL, y: y - 5, class: "lbl" }, r.name + " · " + fmt(t)));
+      else svg.appendChild(s("text", { x: LBL - 10, y: y + 13, "text-anchor": "end", class: "lbl" }, r.name));
+      svg.appendChild(s("text", { x: W, y: y + 13, "text-anchor": "end", class: "strong" }, sign(Math.round(r.net))));
+    });
+    host.appendChild(svg);
+  }
+
+  // ---------- patterns ----------
+  document.getElementById("patProblemsTitle").textContent = D.patterns.problems_title;
+  document.getElementById("patStrengthsTitle").textContent = D.patterns.strengths_title;
+  document.getElementById("patCaption").textContent = D.patterns.caption;
+  function drawPatterns(id, list, partKey, partColor, partWord, restWord) {
+    var host = document.getElementById(id); host.textContent = "";
+    var W = width(id), narrow = W < 600, maxLen = 0;
+    list.forEach(function (i) { maxLen = Math.max(maxLen, i.name.length); });
+    var LBL = narrow ? 0 : Math.min(280, Math.max(150, maxLen * 7.2 + 16)), RL = 150, rh = narrow ? 46 : 34, T = 4, H = T + list.length * rh;
+    var max = list.length ? list[0].n : 1, pw = W - LBL - RL;
+    var svg = s("svg", { viewBox: "0 0 " + W + " " + H, width: "100%", role: "img", "aria-label": "Reviews per issue split by star rating" });
+    list.forEach(function (i, r) {
+      var part = i[partKey], rest = i.n - part, y = T + r * rh + (narrow ? 18 : 0), bh = 22;
+      if (narrow) svg.appendChild(s("text", { x: 0, y: y - 6, class: "lbl" }, i.name));
+      else svg.appendChild(s("text", { x: LBL - 12, y: y + 16, "text-anchor": "end", class: "lbl", "font-size": 13.5 }, i.name));
+      var w1 = pw * part / max, w2 = pw * rest / max;
+      var txt = i.name + "\n" + fmt(i.n) + " reviews\n" + fmt(part) + " " + partWord + " (" + Math.round(100 * part / i.n) + "%), " + fmt(rest) + " " + restWord;
+      var r1 = s("rect", { x: LBL, y: y, width: Math.max(0, w1), height: bh, fill: partColor }); hover(r1, txt); svg.appendChild(r1);
+      var r2 = s("rect", { x: LBL + w1, y: y, width: Math.max(0, w2), height: bh, fill: "var(--neu)", "fill-opacity": 0.75 }); hover(r2, txt); svg.appendChild(r2);
+      svg.appendChild(s("text", { x: LBL + w1 + w2 + 10, y: y + 16, class: "lbl", "font-size": 13.5 }, fmt(i.n) + " (" + fmt(part) + " " + partWord + ")"));
+    });
+    host.appendChild(svg);
+  }
+
+  // ---------- quotes ----------
+  var Q = {}; D.quotes.forEach(function (q) { Q[q.issue_id] = q; });
+  function quoteCard(i) {
+    var q = Q[i.id]; if (!q) return null;
+    var c = el("article", "qcard " + (i.type === "Praise" ? "pos" : "neg"));
+    var h = el("div", "qh"); h.appendChild(el("span", "pill " + typePill[i.type], i.type)); h.appendChild(el("b", null, i.name)); c.appendChild(h);
+    c.appendChild(el("div", "qn", fmt(i.n) + " reviews · " + f1(i.wshare) + "% of reviews (95% CI " + f1(i.wci[0]) + " to " + f1(i.wci[1]) + ")"));
+    c.appendChild(el("div", "qt", "“" + q.text + "”"));
+    if (q.translation) c.appendChild(el("div", "qtr", "Translation: " + q.translation));
+    c.appendChild(el("div", "qs", q.review_id + " · ★" + q.stars + " · v" + q.version + " · " + (countryByCode[q.country] ? countryByCode[q.country].name : q.country)));
+    c.appendChild(el("div", "qf", "Stars on these reviews: mean " + i.stars.mean.toFixed(2) + " (SD " + i.stars.sd.toFixed(2) + "), median " + i.stars.median + ", mode " + i.stars.mode));
+    return c;
+  }
+  var qp = document.getElementById("quotesProblems"), qs = document.getElementById("quotesStrengths");
+  problems.slice(0, 6).forEach(function (i) { var c = quoteCard(i); if (c) qp.appendChild(c); });
+  strengths.slice(0, 4).forEach(function (i) { var c = quoteCard(i); if (c) qs.appendChild(c); });
+
+  // ---------- issue board ----------
+  var view = "all", country = "all";
+  var cs = document.getElementById("countrySel");
+  D.countries.forEach(function (c) { var o = el("option", null, c.name); o.value = c.code; cs.appendChild(o); });
+  if (!multiCountry) hide("countryFilter");
+  function shareFor(i) {
+    if (country === "all") return { p: i.wshare, lo: i.wci[0], hi: i.wci[1], n: i.n };
+    var ci = D.countries.findIndex(function (c) { return c.code === country; }), k = i.counts[ci], n = D.countries[ci].n, w = wilson(k, n);
+    return { p: 100 * k / n, lo: w[0], hi: w[1], n: k };
+  }
+  function miniSvg(w, h) { return s("svg", { viewBox: "0 0 " + w + " " + h, width: w, height: h }); }
+  function drawBoard() {
+    var tb = document.querySelector("#boardTable tbody"); tb.textContent = "";
+    var list = D.issues.filter(function (i) { return view === "all" ? true : view === "problem" ? (i.type === "Bug" || i.type === "Complaint") : i.type === view; });
+    list = list.map(function (i) { return { i: i, sh: shareFor(i) }; }).sort(function (a, b) { return b.sh.p - a.sh.p; });
+    var maxHi = 0; list.forEach(function (r) { maxHi = Math.max(maxHi, r.sh.hi); }); var axisMax = Math.max(12, Math.ceil(maxHi / 2) * 2);
+    list.forEach(function (r) {
+      var i = r.i, sh = r.sh, tr = el("tr"), col = i.type === "Praise" ? "var(--pos)" : "var(--neg)";
+      var td = el("td"); td.appendChild(el("div", "iname", i.name)); var sub = el("div", "isub", i.category); if (i.kappa < 0.7) { sub.appendChild(document.createTextNode(" · ")); sub.appendChild(el("span", "flag", "less reliable")); } td.appendChild(sub); tr.appendChild(td);
+      var tt = el("td"); tt.appendChild(el("span", "pill " + typePill[i.type], i.type)); tr.appendChild(tt);
+      var fc = el("td"), w = 168, sv = miniSvg(w, 26), X = function (v) { return 4 + (w - 54) * v / axisMax; };
+      sv.appendChild(s("line", { x1: X(0), x2: X(axisMax), y1: 13, y2: 13, stroke: "var(--line)" }));
+      sv.appendChild(s("line", { x1: X(sh.lo), x2: X(sh.hi), y1: 13, y2: 13, stroke: col, "stroke-width": 2 }));
+      sv.appendChild(s("line", { x1: X(sh.lo), x2: X(sh.lo), y1: 9, y2: 17, stroke: col, "stroke-width": 1.5 }));
+      sv.appendChild(s("line", { x1: X(sh.hi), x2: X(sh.hi), y1: 9, y2: 17, stroke: col, "stroke-width": 1.5 }));
+      sv.appendChild(s("circle", { cx: X(sh.p), cy: 13, r: 4.5, fill: col }));
+      sv.appendChild(s("text", { x: w - 2, y: 17, "text-anchor": "end", class: "strong", "font-size": 12.5 }, f1(sh.p) + "%"));
+      hover(sv, f1(sh.p) + "% of reviews\n95% CI " + f1(sh.lo) + " to " + f1(sh.hi) + "%" + (country === "all" ? "\nStratified across " + D.countries.length + " countries" : "\n" + country + " only"));
+      fc.appendChild(sv); tr.appendChild(fc);
+      tr.appendChild(el("td", "r num", fmt(sh.n)));
+      var gc = el("td"), gw = 128, gs = miniSvg(gw, 26), G = function (v) { return 8 + (gw - 52) * (Math.max(-2.5, Math.min(2.5, v)) + 2.5) / 5; }, gcol = i.gap < 0 ? "var(--neg)" : "var(--pos)";
+      gs.appendChild(s("line", { x1: G(0), x2: G(0), y1: 4, y2: 22, stroke: "var(--faint)" }));
+      gs.appendChild(s("rect", { x: Math.min(G(0), G(i.gap)), y: 9, width: Math.abs(G(i.gap) - G(0)), height: 8, rx: 2, fill: gcol, "fill-opacity": 0.35 }));
+      gs.appendChild(s("line", { x1: G(i.gap_ci[0]), x2: G(i.gap_ci[1]), y1: 13, y2: 13, stroke: gcol, "stroke-width": 1.5 }));
+      gs.appendChild(s("circle", { cx: G(i.gap), cy: 13, r: 3.5, fill: gcol }));
+      gs.appendChild(s("text", { x: gw - 2, y: 17, "text-anchor": "end", class: "strong", "font-size": 12.5 }, sign(i.gap, 2)));
+      hover(gs, "Reviews with this issue: mean " + i.stars.mean.toFixed(2) + "★ (median " + i.stars.median + ", mode " + i.stars.mode + ", SD " + i.stars.sd.toFixed(2) + ")\nGap " + i.gap.toFixed(2) + "★, 95% CI " + i.gap_ci[0] + " to " + i.gap_ci[1] + "\nCohen's d " + i.cohen_d);
+      gc.appendChild(gs); tr.appendChild(gc);
+      var sc = el("td");
+      if (i.severity) {
+        var tot = i.severity.reduce(function (a, b) { return a + b; }, 0), sw = 92, ssv = miniSvg(sw, 14), xx = 0, cols = ["var(--sev1)", "var(--sev2)", "var(--sev3)", "var(--sev4)"];
+        i.severity.forEach(function (v, k) { var ww = sw * v / tot; ssv.appendChild(s("rect", { x: xx, y: 2, width: Math.max(0, ww - 1), height: 10, fill: cols[k] })); xx += ww; });
+        hover(ssv, "Blocker " + Math.round(100 * i.severity[0] / tot) + "% · Major " + Math.round(100 * i.severity[1] / tot) + "%\nMinor " + Math.round(100 * i.severity[2] / tot) + "% · Cosmetic " + Math.round(100 * i.severity[3] / tot) + "%\n" + tot + " statements");
+        sc.appendChild(ssv);
+      } else sc.appendChild(el("span", "isub", "n/a"));
+      tr.appendChild(sc);
+      var cc = el("td");
+      if (multiCountry) { var lab = i.cv < 30 ? ["Even", "p-gray"] : i.cv <= 60 ? ["Varies", "p-yellow"] : ["Concentrated", "p-purple"]; cc.appendChild(el("span", "pill " + lab[1], lab[0])); cc.appendChild(el("span", "isub num", "  CV " + Math.round(i.cv) + "%")); }
+      else cc.appendChild(el("span", "isub", "one country"));
+      tr.appendChild(cc);
+      tr.appendChild(el("td", "r num", i.kappa.toFixed(2)));
+      tb.appendChild(tr);
+    });
+  }
+  document.getElementById("views").addEventListener("click", function (e) { var b = e.target.closest("button"); if (!b) return; view = b.getAttribute("data-v-view"); Array.prototype.forEach.call(this.children, function (x) { x.setAttribute("aria-selected", x === b ? "true" : "false"); }); drawBoard(); });
+  cs.addEventListener("change", function () { country = cs.value; drawBoard(); });
+
+  // ---------- scatter ----------
+  function niceMax(v, step) { return Math.max(step * 2, Math.ceil(v / step) * step); }
+  function drawScatter() {
+    var id = "scatterChart", host = document.getElementById(id); host.textContent = "";
+    var W = width(id), H = Math.min(460, Math.max(320, W * 0.55)), L = 48, R = 16, T = 16, B = 42;
+    var xMax = niceMax(Math.max.apply(null, problems.map(function (i) { return i.wshare; })) * 1.08, 1.5);
+    var yMin = -niceMax(-Math.min.apply(null, problems.map(function (i) { return Math.min(0, i.gap); })) * 1.08, 0.5);
+    var svg = s("svg", { viewBox: "0 0 " + W + " " + H, width: "100%", role: "img", "aria-label": "Problems by frequency and rating gap" });
+    var X = function (v) { return L + (W - L - R) * v / xMax; }, Y = function (v) { return T + (H - T - B) * (Math.min(0, v)) / yMin; };
+    for (var tx = 0; tx <= xMax + 1e-9; tx += 1.5) { svg.appendChild(s("line", { x1: X(tx), x2: X(tx), y1: T, y2: H - B, stroke: "var(--line)" })); svg.appendChild(s("text", { x: X(tx), y: H - B + 16, "text-anchor": "middle" }, tx + "%")); }
+    for (var ty = 0; ty >= yMin - 1e-9; ty -= 0.5) { svg.appendChild(s("line", { x1: L, x2: W - R, y1: Y(ty), y2: Y(ty), stroke: "var(--line)" })); svg.appendChild(s("text", { x: L - 6, y: Y(ty) + 4, "text-anchor": "end" }, ty === 0 ? "0" : "−" + Math.abs(ty))); }
+    svg.appendChild(s("text", { x: (L + W - R) / 2, y: H - 6, "text-anchor": "middle" }, "Share of reviews (weighted)"));
+    svg.appendChild(s("text", { x: 12, y: (T + H - B) / 2, "text-anchor": "middle", transform: "rotate(-90 12 " + ((T + H - B) / 2) + ")" }, "Rating gap (stars)"));
+    var med = function (a) { a = a.slice().sort(function (p, q) { return p - q; }); var m = Math.floor(a.length / 2); return a.length % 2 ? a[m] : (a[m - 1] + a[m]) / 2; };
+    var mx = med(problems.map(function (i) { return i.wshare; })), my = med(problems.map(function (i) { return i.gap; }));
+    svg.appendChild(s("line", { x1: X(mx), x2: X(mx), y1: T, y2: H - B, stroke: "var(--faint)", "stroke-dasharray": "4 4" }));
+    svg.appendChild(s("line", { x1: L, x2: W - R, y1: Y(my), y2: Y(my), stroke: "var(--faint)", "stroke-dasharray": "4 4" }));
+    var corner = [["Rare, smaller gap", L + 6, T + 12, "start"], ["Common, smaller gap", W - R - 4, T + 12, "end"], ["Rare, large gap", L + 6, H - B - 8, "start"], ["Common, large gap", W - R - 4, H - B - 8, "end"]];
+    corner.forEach(function (c) { svg.appendChild(s("text", { x: c[1], y: c[2], "text-anchor": c[3], "font-size": 11.5 }, c[0])); });
+    var boxes = [[L, T, L + 130, T + 16], [W - R - 140, T, W - R, T + 16], [L, H - B - 22, L + 120, H - B], [W - R - 130, H - B - 22, W - R, H - B]];
+    var colOf = function (i) { return i.type === "Bug" ? "var(--neg)" : i.type === "Request" ? "var(--accent)" : "var(--mix)"; };
+    var pts = problems.map(function (i) { return { i: i, r: 4 + Math.sqrt(i.n) * 0.9, cx: X(i.wshare), cy: Y(i.gap) }; });
+    pts.forEach(function (p) { boxes.push([p.cx - p.r, p.cy - p.r, p.cx + p.r, p.cy + p.r]); });
+    pts.forEach(function (p) { var c = s("circle", { cx: p.cx, cy: p.cy, r: p.r, fill: colOf(p.i), "fill-opacity": 0.55, stroke: colOf(p.i) }); hover(c, p.i.name + "\n" + f1(p.i.wshare) + "% of reviews (" + p.i.n + ")\nRating gap " + p.i.gap.toFixed(2) + "★ · " + p.i.type); svg.appendChild(c); });
+    if (W > 520) {
+      var hit = function (b, own) { for (var k = 0; k < boxes.length; k++) { var o = boxes[k]; if (o === own) continue; if (b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]) return true; } return b[0] < L || b[2] > W - R || b[1] < T || b[3] > H - B; };
+      pts.forEach(function (p, idx) {
+        var label = p.i.short_name + (p.i.gap > 0 ? " (+" + p.i.gap.toFixed(2) + ")" : ""), tw = label.length * 6.6 + 4, th = 14, own = boxes[4 + idx];
+        var cand = [[p.cx + p.r + 4, p.cy - 7], [p.cx - p.r - 4 - tw, p.cy - 7], [p.cx + p.r * 0.7, p.cy - p.r - th - 1], [p.cx + p.r * 0.7, p.cy + p.r + 1], [p.cx - tw / 2, p.cy - p.r - th - 2], [p.cx - tw / 2, p.cy + p.r + 2], [p.cx - p.r * 0.7 - tw, p.cy - p.r - th - 1], [p.cx - p.r * 0.7 - tw, p.cy + p.r + 1]];
+        for (var k = 0; k < cand.length; k++) { var b = [cand[k][0], cand[k][1], cand[k][0] + tw, cand[k][1] + th]; if (!hit(b, own)) { boxes.push(b); svg.appendChild(s("text", { x: b[0] + 2, y: b[1] + 11, class: "lbl", "font-size": 12 }, label)); break; } }
+      });
+    }
+    host.appendChild(svg);
+    var lg = el("div", "legend"); [["var(--neg)", "Bug"], ["var(--mix)", "Complaint"], ["var(--accent)", "Request"]].forEach(function (x) { var sp = el("span"), ii = el("i"); ii.style.background = x[0]; ii.style.borderRadius = "50%"; sp.appendChild(ii); sp.appendChild(document.createTextNode(x[1])); lg.appendChild(sp); }); host.appendChild(lg);
+    host.appendChild(el("p", "caption", "Medians: share " + f1(mx) + "%, gap " + my.toFixed(2) + "★. Positive gaps are drawn on the zero line and labeled. Positions describe what reviewers wrote and how they rated; they do not show which problem matters more to the business."));
+  }
+
+  // ---------- teams ----------
+  function drawTeams() {
+    var host = document.getElementById("teamList"); host.textContent = "";
+    var g = el("div", "tm"), tMax = niceMax(Math.max.apply(null, D.teams.map(function (t) { return t.hi; })), 4);
+    D.teams.forEach(function (t) {
+      var a = el("div"); a.appendChild(el("span", "iname", t.name)); g.appendChild(a);
+      var b = el("div");
+      if (t.n > 0) {
+        var w = 190, sv = s("svg", { viewBox: "0 0 " + w + " 24", width: w, height: 24 }), X = function (v) { return 4 + (w - 52) * v / tMax; };
+        sv.appendChild(s("line", { x1: X(0), x2: X(tMax), y1: 12, y2: 12, stroke: "var(--line)" }));
+        sv.appendChild(s("rect", { x: X(0), y: 7, width: X(t.w) - X(0), height: 10, rx: 2, fill: "var(--neg)", "fill-opacity": 0.25 }));
+        sv.appendChild(s("line", { x1: X(t.lo), x2: X(t.hi), y1: 12, y2: 12, stroke: "var(--neg)", "stroke-width": 1.5 }));
+        sv.appendChild(s("circle", { cx: X(t.w), cy: 12, r: 4, fill: "var(--neg)" }));
+        sv.appendChild(s("text", { x: w - 2, y: 16, "text-anchor": "end", class: "strong", "font-size": 12.5 }, f1(t.w) + "%"));
+        hover(sv, t.name + "\n" + f1(t.w) + "% of reviews (" + t.n + "), 95% CI " + f1(t.lo) + " to " + f1(t.hi) + "%");
+        b.appendChild(sv);
+      } else b.appendChild(el("span", "isub", "Secondary owner only"));
+      g.appendChild(b);
+      var c = el("div", "tm-last");
+      t.primary.forEach(function (id) { var i = byId[id]; c.appendChild(el("span", "pill p-red", i.name + " · " + i.n)); });
+      t.secondary.forEach(function (id) { c.appendChild(el("span", "pill outline", byId[id].name)); });
+      g.appendChild(c);
+    });
+    host.appendChild(g);
+  }
+
+  // ---------- journey map ----------
+  function drawJourneyMap() {
+    var host = document.getElementById("journeyMap"); host.textContent = "";
+    var J = D.journey.stages, n = J.length;
+    host.style.minWidth = (132 + n * 112) + "px";
+    var grid = el("div", "jm"); grid.style.gridTemplateColumns = "132px repeat(" + n + ", minmax(108px, 1fr))";
+    grid.appendChild(el("div", "jm-l", "Stage"));
+    J.forEach(function (j, i) { var c = el("div", "jm-h"); c.appendChild(el("span", "jm-step", "Stage " + (i + 1))); c.appendChild(el("b", null, j.name)); c.appendChild(el("span", "isub", j.desc)); grid.appendChild(c); });
+    grid.appendChild(el("div", "jm-l", "Net sentiment"));
+    var holder = el("div", "jm-curve"); holder.style.gridColumn = "2 / -1"; grid.appendChild(holder);
+    function row(label, fn) { grid.appendChild(el("div", "jm-l", label)); J.forEach(function (j) { var c = el("div"); fn(c, j); grid.appendChild(c); }); }
+    row("Statements", function (c, j) { c.appendChild(el("span", "num", fmt(j.total))); c.appendChild(el("div", "isub", fmt(j.neg) + " neg · " + fmt(j.pos) + " pos")); });
+    row("Most raised problem", function (c, j) { if (j.top_problem) c.appendChild(el("span", "jm-prob", byId[j.top_problem].name)); else c.appendChild(el("span", "isub", "None recurring")); });
+    row("Most raised strength", function (c, j) { if (j.top_strength) c.appendChild(el("span", "jm-str", byId[j.top_strength].name)); else c.appendChild(el("span", "isub", "None recurring")); });
+    row("Blocker share", function (c, j) { c.appendChild(el("span", "num", j.blocker + "%")); var b = el("div", "jm-bar"), ii = el("i"); ii.style.width = j.blocker + "%"; b.appendChild(ii); c.appendChild(b); });
+    host.appendChild(grid);
+    var w = Math.max(n * 108, holder.clientWidth), h = 180, top = 22, bot = 22;
+    var svg = s("svg", { viewBox: "0 0 " + w + " " + h, width: "100%", role: "img", "aria-label": "Net sentiment along the journey" });
+    var X = function (i) { return (i + 0.5) * w / n; }, Y = function (v) { return top + (h - top - bot) * (1 - (v + 100) / 200); };
+    [100, 50, 0, -50, -100].forEach(function (t) { svg.appendChild(s("line", { x1: 0, x2: w, y1: Y(t), y2: Y(t), stroke: "var(--line)", "stroke-width": t === 0 ? 1.5 : 1, "stroke-dasharray": t === 0 ? "" : "3 4" })); svg.appendChild(s("text", { x: 4, y: Y(t) - 4, "font-size": 11 }, sign(t))); });
+    var pts = J.map(function (j, i) { return [X(i), Y(j.net)]; });
+    var d = "M" + pts[0][0] + " " + pts[0][1];
+    for (var k = 0; k < pts.length - 1; k++) { var p0 = pts[k - 1] || pts[k], p1 = pts[k], p2 = pts[k + 1], p3 = pts[k + 2] || p2; d += " C" + (p1[0] + (p2[0] - p0[0]) / 6) + " " + (p1[1] + (p2[1] - p0[1]) / 6) + " " + (p2[0] - (p3[0] - p1[0]) / 6) + " " + (p2[1] - (p3[1] - p1[1]) / 6) + " " + p2[0] + " " + p2[1]; }
+    var area = d + " L" + pts[pts.length - 1][0] + " " + Y(0) + " L" + pts[0][0] + " " + Y(0) + " Z";
+    var defs = s("defs"), cpU = s("clipPath", { id: "jm-up" }), cpD = s("clipPath", { id: "jm-dn" });
+    cpU.appendChild(s("rect", { x: 0, y: 0, width: w, height: Y(0) })); cpD.appendChild(s("rect", { x: 0, y: Y(0), width: w, height: h })); defs.appendChild(cpU); defs.appendChild(cpD); svg.appendChild(defs);
+    svg.appendChild(s("path", { d: area, fill: "var(--pos)", "fill-opacity": 0.16, "clip-path": "url(#jm-up)" }));
+    svg.appendChild(s("path", { d: area, fill: "var(--neg)", "fill-opacity": 0.14, "clip-path": "url(#jm-dn)" }));
+    svg.appendChild(s("path", { d: d, fill: "none", stroke: "var(--text)", "stroke-width": 1.75 }));
+    J.forEach(function (j, i) {
+      var r = 5 + Math.sqrt(j.total) * 0.36, col = j.net >= 0 ? "var(--pos)" : "var(--neg)";
+      var c = s("circle", { cx: X(i), cy: Y(j.net), r: r, fill: col, stroke: "var(--page)", "stroke-width": 2 });
+      hover(c, j.name + "\nNet sentiment " + sign(Math.round(j.net)) + "\n" + fmt(j.pos) + " positive, " + fmt(j.neg) + " negative, " + fmt(j.other) + " neutral or mixed"); svg.appendChild(c);
+      svg.appendChild(s("text", { x: X(i), y: j.net >= 0 ? Y(j.net) - r - 6 : Y(j.net) + r + 14, "text-anchor": "middle", class: "strong" }, sign(Math.round(j.net))));
+    });
+    holder.appendChild(svg);
+  }
+
+  // ---------- time ----------
+  var TPAL = ["var(--neg)", "var(--accent)", "var(--mix)", "var(--c4)", "var(--c5)"];
+  var TS = D.time && D.time.series ? D.time.series : [];
+  var solidWeeks = D.time ? D.time.n_week.filter(function (n) { return n >= 50; }).length : 0;
+  var showTime = TS.length > 0 && solidWeeks >= 6;
+  var tcol = {}; TS.forEach(function (sr, k) { tcol[sr.id] = TPAL[k % TPAL.length]; });
+  var focus = null;
+  function drawTime() {
+    if (!showTime) return;
+    var T0 = D.time, id = "timeChart", host = document.getElementById(id); host.textContent = "";
+    var W = width(id), H = 360, L = 40, R = 14, T = 30, VB = 44, GAP = 26, B = 24, pB = H - B - VB - GAP, nW = T0.weeks.length;
+    var yMax = niceMax(Math.max.apply(null, TS.map(function (sr) { return Math.max.apply(null, sr.pts.map(function (p) { return p.n >= 50 ? p.p : 0; })); })) * 1.15, 4);
+    var svg = s("svg", { viewBox: "0 0 " + W + " " + H, width: "100%", role: "img", "aria-label": "Weekly share of reviews for the most common problems" });
+    var X = function (t) { return L + 10 + (W - L - R - 20) * t / (nW - 1); }, Y = function (v) { return T + (pB - T) * (1 - Math.min(v, yMax) / yMax); };
+    var rx = (X(T0.recent_from - 1) + X(T0.recent_from)) / 2;
+    svg.appendChild(s("rect", { x: rx, y: T - 18, width: W - R - rx, height: pB - T + 18, fill: "var(--hover)" }));
+    svg.appendChild(s("text", { x: W - R - 6, y: pB - 8, "text-anchor": "end", "font-size": 11.5 }, "Last 4 weeks"));
+    for (var t = 0; t <= yMax + 1e-9; t += yMax / 4) { svg.appendChild(s("line", { x1: L, x2: W - R, y1: Y(t), y2: Y(t), stroke: "var(--line)" })); svg.appendChild(s("text", { x: L - 6, y: Y(t) + 4, "text-anchor": "end" }, Math.round(t) + "%")); }
+    T0.releases.forEach(function (r) { var x = X(r.pos); svg.appendChild(s("line", { x1: x, x2: x, y1: T - 18, y2: pB, stroke: "var(--faint)", "stroke-dasharray": "4 3" })); svg.appendChild(s("text", { x: x + 4, y: T - 6, "font-size": 11.5, class: "lbl" }, r.label)); });
+    TS.slice().sort(function (a, b) { return (a.id === focus) - (b.id === focus); }).forEach(function (sr) {
+      var col = tcol[sr.id], dim = focus && focus !== sr.id, sig = sr.p_adj < 0.05;
+      if (focus === sr.id) { var band = sr.pts.map(function (p, k) { return (k ? "L" : "M") + X(k) + " " + Y(p.hi); }).join("") + sr.pts.slice().reverse().map(function (p, k) { return "L" + X(nW - 1 - k) + " " + Y(p.lo); }).join("") + "Z"; svg.appendChild(s("path", { d: band, fill: col, "fill-opacity": 0.15 })); }
+      svg.appendChild(s("path", { d: sr.pts.map(function (p, k) { return (k ? "L" : "M") + X(k) + " " + Y(p.p); }).join(""), fill: "none", stroke: col, "stroke-width": sig || focus === sr.id ? 2.5 : 1.75, opacity: dim ? 0.15 : 1, "stroke-linejoin": "round" }));
+      sr.pts.forEach(function (p, k) {
+        var low = p.n < 50, c = s("circle", { cx: X(k), cy: Y(p.p), r: 3.2, fill: low ? "var(--page)" : col, stroke: col, "stroke-width": 1.5, opacity: dim ? 0.15 : 1 });
+        hover(c, byId[sr.id].name + "\nWeek of " + T0.weeks[k] + ": " + p.p.toFixed(1) + "% (" + p.k + " of " + p.n + " reviews, " + p.countries + (p.countries === 1 ? " country" : " countries") + ")\n95% CI " + p.lo.toFixed(1) + " to " + p.hi.toFixed(1) + "%" + (low ? "\nFewer than 50 reviews" : ""));
+        svg.appendChild(c);
+      });
+    });
+    var vy0 = pB + GAP, maxN = Math.max.apply(null, T0.n_week);
+    T0.n_week.forEach(function (nw, k) {
+      var h = (VB - 4) * nw / maxN, bw = Math.max(6, (W - L - R) / nW * 0.45);
+      var rc = s("rect", { x: X(k) - bw / 2, y: vy0 + VB - h, width: bw, height: h, rx: 1.5, fill: nw < 50 ? "var(--line)" : "var(--neu)" });
+      hover(rc, "Week of " + T0.weeks[k] + ": " + nw + " reviews"); svg.appendChild(rc);
+      if (W > 640 || k % 2 === 0) svg.appendChild(s("text", { x: X(k), y: H - 6, "text-anchor": "middle", "font-size": 11 }, T0.weeks[k]));
+    });
+    svg.appendChild(s("text", { x: L, y: vy0 - 6, "font-size": 11 }, "Reviews per week"));
+    host.appendChild(svg);
+  }
+  if (showTime) {
+    var ttb = document.querySelector("#timeTable tbody");
+    TS.forEach(function (sr) {
+      var tr = el("tr"), td = el("td"), sw = el("span", "swatch"); sw.style.background = tcol[sr.id]; td.appendChild(sw); td.appendChild(document.createTextNode(byId[sr.id].name)); tr.appendChild(td);
+      tr.appendChild(el("td", "r num", f1(sr.earlier) + "%")); tr.appendChild(el("td", "r num", f1(sr.recent) + "%"));
+      tr.appendChild(el("td", "r num", sign(sr.diff, 1) + " pp"));
+      tr.appendChild(el("td", "r num", sr.p_adj < 0.001 ? "< 0.001" : sr.p_adj.toFixed(2)));
+      var bt = el("td"); bt.appendChild(el("span", "pill " + (sr.p_adj < 0.05 ? "p-red" : "p-gray"), sr.p_adj < 0.05 ? (sr.diff > 0 ? "Rising" : "Falling") : "No clear change")); tr.appendChild(bt);
+      tr.addEventListener("mouseenter", function () { focus = sr.id; tr.classList.add("sel"); drawTime(); });
+      tr.addEventListener("mouseleave", function () { focus = null; tr.classList.remove("sel"); drawTime(); });
+      ttb.appendChild(tr);
+    });
+    var ex = D.time.excluded_countries || [];
+    if (ex.length) document.getElementById("timeExcluded").textContent = " " + ex.map(function (c) { return countryByCode[c] ? countryByCode[c].name : c; }).join(", ") + (ex.length === 1 ? " has" : " have") + " reviews only in the recent period and " + (ex.length === 1 ? "is" : "are") + " left out of the comparison.";
+  } else hide("time");
+
+  // ---------- countries ----------
+  function drawHeat() {
+    var id = "heatChart", host = document.getElementById(id); host.textContent = "";
+    var W = Math.max(680, width(id)), LBL = 230, STAT = 150, n = D.countries.length, cw = (W - LBL - STAT - 10) / n, rh = 30, T = 28, H = T + problems.length * rh + 6;
+    var svg = s("svg", { viewBox: "0 0 " + W + " " + H, width: "100%", role: "img", "aria-label": "Problem share by country" });
+    D.countries.forEach(function (c, j) { svg.appendChild(s("text", { x: LBL + j * cw + cw / 2, y: T - 10, "text-anchor": "middle", class: "lbl" }, c.code)); });
+    svg.appendChild(s("text", { x: W - STAT + 8, y: T - 10, class: "lbl" }, "p · Cramér's V"));
+    problems.forEach(function (i, r) {
+      var y = T + r * rh;
+      svg.appendChild(s("text", { x: LBL - 10, y: y + rh / 2 + 4, "text-anchor": "end", class: "lbl" }, i.name.length > 32 ? i.name.slice(0, 31) + "…" : i.name));
+      i.per_country.forEach(function (v, j) {
+        var k = Math.min(1, v / 10), x = LBL + j * cw;
+        var rc = s("rect", { x: x + 1, y: y + 1, width: cw - 2, height: rh - 2, rx: 2, fill: "var(--neg)", "fill-opacity": 0.06 + 0.84 * k });
+        hover(rc, i.name + "\n" + D.countries[j].name + ": " + v.toFixed(1) + "% (" + i.counts[j] + " of " + D.countries[j].n + ")"); svg.appendChild(rc);
+        var t = s("text", { x: x + cw / 2, y: y + rh / 2 + 4, "text-anchor": "middle", "font-size": 12 }, v.toFixed(1)); t.style.fill = k > 0.55 ? "var(--page)" : "var(--text)"; svg.appendChild(t);
+      });
+      var t2 = s("text", { x: W - STAT + 8, y: y + rh / 2 + 4, "font-size": 12.5 }, (i.p < 0.001 ? "<0.001" : i.p.toFixed(3)) + " · " + i.cramer.toFixed(2)); if (i.p < 0.05) t2.setAttribute("class", "strong"); svg.appendChild(t2);
+    });
+    host.appendChild(svg);
+  }
+  if (multiCountry) {
+    var strong = problems.filter(function (i) { return i.p < 0.05 && i.cramer >= 0.1; }).sort(function (a, b) { return b.cramer - a.cramer; });
+    document.getElementById("countryToggleLabel").textContent = strong.length === 0 ? "No problem differs meaningfully by country" : (strong.length === 1 ? "Only one problem differs" : strong.length + " problems differ") + " meaningfully by country (largest Cramér's V = " + strong[0].cramer.toFixed(2) + ")";
+  } else { hide("countries"); hide("countryCoverage"); }
+
+  // ---------- reliability ----------
+  function drawKappa() {
+    var id = "kappaChart", host = document.getElementById(id); host.textContent = "";
+    var list = D.issues.slice().sort(function (a, b) { return a.kappa - b.kappa; });
+    var W = width(id), narrow = W < 480, LBL = narrow ? 0 : 190, rh = narrow ? 34 : 22, T = 22, H = T + list.length * rh + 8;
+    var svg = s("svg", { viewBox: "0 0 " + W + " " + H, width: "100%", role: "img", "aria-label": "Kappa per issue" });
+    var X = function (v) { return LBL + (W - LBL - 40) * (Math.max(0.4, v) - 0.4) / 0.6; };
+    [[0.4, 0.6, "Moderate"], [0.6, 0.8, "Substantial"], [0.8, 1.0, "Almost perfect"]].forEach(function (b, k) { svg.appendChild(s("rect", { x: X(b[0]), y: T - 4, width: X(b[1]) - X(b[0]), height: H - T, fill: "var(--hover)", "fill-opacity": k === 1 ? 0 : 1 })); svg.appendChild(s("text", { x: (X(b[0]) + X(b[1])) / 2, y: 12, "text-anchor": "middle", "font-size": 11 }, b[2])); });
+    svg.appendChild(s("line", { x1: X(0.7), x2: X(0.7), y1: T - 4, y2: H - 4, stroke: "var(--mix)", "stroke-dasharray": "4 3" }));
+    list.forEach(function (i, r) {
+      var y = T + r * rh + (narrow ? 18 : 10);
+      if (narrow) svg.appendChild(s("text", { x: 0, y: y - 8, class: "lbl", "font-size": 11.5 }, i.name)); else svg.appendChild(s("text", { x: LBL - 8, y: y + 4, "text-anchor": "end", class: "lbl", "font-size": 12 }, i.name.length > 28 ? i.name.slice(0, 27) + "…" : i.name));
+      svg.appendChild(s("line", { x1: X(0.4), x2: X(i.kappa), y1: y, y2: y, stroke: "var(--line)" }));
+      var c = s("circle", { cx: X(i.kappa), cy: y, r: 4.5, fill: i.kappa < 0.7 ? "var(--mix)" : "var(--accent)" }); hover(c, i.name + "\nκ = " + i.kappa.toFixed(2)); svg.appendChild(c);
+      svg.appendChild(s("text", { x: X(i.kappa) + 9, y: y + 4, "font-size": 11.5 }, i.kappa.toFixed(2)));
+    });
+    host.appendChild(svg);
+  }
+  var gr = document.getElementById("gateRows");
+  D.reliability.gates.forEach(function (g) { var tr = el("tr"), a = el("td"); a.appendChild(el("span", "pill " + (g.status === "pass" ? "p-green" : "p-yellow"), g.status === "pass" ? "Pass" : "Flag")); tr.appendChild(a); tr.appendChild(el("td", null, g.text)); gr.appendChild(tr); });
+  var ll = document.getElementById("limitList"); D.reliability.limits.forEach(function (t) { ll.appendChild(el("li", null, t)); });
+
+  // ---------- glossary (meanings fixed, examples from data) ----------
+  var MEANING = [
+    ["stratified_share", "Share of reviews", "Share of reviews raising an issue; bigger markets count more."],
+    ["ci", "95% interval (CI)", "The range the true share is likely in."],
+    ["mean_median_mode", "Mean, median, mode", "Average, middle and most common star rating."],
+    ["sd", "Spread (SD)", "How far star ratings spread around the average."],
+    ["cv", "Country spread (CV)", "How unevenly an issue appears across countries."],
+    ["rating_gap", "Rating gap", "Star difference between reviews with and without the issue."],
+    ["cohens_d", "Cohen's d", "The rating gap on a common scale: 0.2 small, 0.8 large."],
+    ["net_sentiment", "Net sentiment", "Positive minus negative statements, from −100 to +100."],
+    ["blocker_share", "Blocker share", "Problems where the reviewer could not finish a task."],
+    ["cmh", "Change over time", "Whether a share changed in the last 4 weeks, compared within each country."],
+    ["holm", "p-value", "Below 0.05 after correction: unlikely to be chance."],
+    ["chi_square", "Country difference", "Whether an issue differs by country, and how much (V from 0 to 1)."],
+    ["kappa", "Agreement (κ)", "How often two independent labeling passes agree; above 0.8 is very high."]
+  ];
+  var gb = document.querySelector("#glossary tbody");
+  MEANING.forEach(function (g) { var ex = D.glossary_examples[g[0]]; if (!ex) return; if ((g[0] === "cmh") && !showTime) return; if ((g[0] === "chi_square" || g[0] === "cv") && !multiCountry) return; var tr = el("tr"); tr.appendChild(el("td", "iname", g[1])); tr.appendChild(el("td", null, g[2])); tr.appendChild(el("td", null, ex)); gb.appendChild(tr); });
+
+  // ---------- footer ----------
+  document.getElementById("creditYear").textContent = M.run_date.slice(0, 4);
+
+  // ---------- draw ----------
+  function drawAll() {
+    drawMix(); drawSentOverall(); drawDiverging();
+    drawPatterns("patProblems", problems, "n_low", "var(--accent)", "low-star", "from 3 to 5 stars");
+    drawPatterns("patStrengths", strengths, "n_high", "var(--pos)", "high-star", "from 1 to 3 stars");
+    drawBoard(); drawScatter(); drawTeams(); drawJourneyMap(); drawTime(); if (multiCountry) drawHeat(); drawKappa();
+  }
+  drawAll();
+  var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(drawAll, 150); });
+})();
+</script>

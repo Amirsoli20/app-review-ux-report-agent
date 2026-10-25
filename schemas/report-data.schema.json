@@ -1,0 +1,1109 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "schema_version": {
+   "type": "string"
+  },
+  "meta": {
+   "type": "object",
+   "properties": {
+    "app_name": {
+     "type": "string"
+    },
+    "app_short": {
+     "type": "string"
+    },
+    "app_id": {
+     "type": "string"
+    },
+    "run_date": {
+     "type": "string"
+    },
+    "period_start": {
+     "type": "string"
+    },
+    "period_end": {
+     "type": "string"
+    },
+    "countries": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "n_reviews": {
+     "type": "integer"
+    },
+    "n_statements": {
+     "type": "integer"
+    },
+    "n_statements_kept": {
+     "type": "integer"
+    },
+    "mean_stars": {
+     "type": "number"
+    },
+    "kappa": {
+     "type": "number"
+    },
+    "repetition_threshold": {
+     "type": "integer"
+    },
+    "languages": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "second_pass_n": {
+     "type": "integer"
+    },
+    "notice": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "Optional banner text, markdown **bold** allowed. null for real runs."
+    }
+   },
+   "required": [
+    "app_id",
+    "app_name",
+    "app_short",
+    "countries",
+    "kappa",
+    "languages",
+    "mean_stars",
+    "n_reviews",
+    "n_statements",
+    "n_statements_kept",
+    "notice",
+    "period_end",
+    "period_start",
+    "repetition_threshold",
+    "run_date",
+    "second_pass_n"
+   ]
+  },
+  "summary": {
+   "type": "array",
+   "minItems": 4,
+   "maxItems": 6,
+   "items": {
+    "type": "string",
+    "maxLength": 330
+   },
+   "description": "AI text slot. 4 to 6 findings, each one sentence or two, under 45 words, with its number. Markdown **bold** for issue names only. No advice."
+  },
+  "about": {
+   "type": "object",
+   "properties": {
+    "description": {
+     "type": "string"
+    },
+    "description_source": {
+     "type": "string"
+    },
+    "developer": {
+     "type": "string"
+    },
+    "category": {
+     "type": "string"
+    },
+    "price": {
+     "type": "string"
+    },
+    "current_version": {
+     "type": "string"
+    },
+    "current_version_date": {
+     "type": "string"
+    },
+    "store_rating": {
+     "type": "number"
+    },
+    "store_rating_country": {
+     "type": "string"
+    },
+    "store_rating_count": {
+     "type": "integer"
+    },
+    "languages_label": {
+     "type": "string"
+    },
+    "features": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "versions": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "version": {
+        "type": "string"
+       },
+       "date": {
+        "type": "string"
+       },
+       "notes": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "date",
+       "notes",
+       "version"
+      ]
+     }
+    }
+   },
+   "required": [
+    "category",
+    "current_version",
+    "current_version_date",
+    "description",
+    "description_source",
+    "developer",
+    "features",
+    "languages_label",
+    "price",
+    "store_rating",
+    "store_rating_count",
+    "store_rating_country",
+    "versions"
+   ]
+  },
+  "countries": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "code": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "ratings": {
+      "type": "integer"
+     },
+     "weight": {
+      "type": "number"
+     },
+     "n": {
+      "type": "integer"
+     },
+     "window": {
+      "type": "string"
+     },
+     "days": {
+      "type": "integer"
+     },
+     "lang": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "code",
+     "days",
+     "lang",
+     "n",
+     "name",
+     "ratings",
+     "weight",
+     "window"
+    ]
+   }
+  },
+  "country_selection": {
+   "type": "object",
+   "properties": {
+    "candidates": {
+     "type": "integer"
+    },
+    "coverage": {
+     "type": "number"
+    },
+    "target": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "candidates",
+    "coverage",
+    "target"
+   ]
+  },
+  "mix": {
+   "type": "object",
+   "properties": {
+    "5": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    },
+    "4": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    },
+    "3": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    },
+    "2": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    },
+    "1": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    }
+   },
+   "required": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+   ]
+  },
+  "sentiment": {
+   "type": "object",
+   "properties": {
+    "overall": {
+     "type": "object",
+     "properties": {
+      "negative": {
+       "type": "object",
+       "properties": {
+        "n": {
+         "type": "integer"
+        },
+        "p": {
+         "type": "number"
+        },
+        "lo": {
+         "type": "number"
+        },
+        "hi": {
+         "type": "number"
+        }
+       },
+       "required": [
+        "hi",
+        "lo",
+        "n",
+        "p"
+       ]
+      },
+      "mixed": {
+       "type": "object",
+       "properties": {
+        "n": {
+         "type": "integer"
+        },
+        "p": {
+         "type": "number"
+        },
+        "lo": {
+         "type": "number"
+        },
+        "hi": {
+         "type": "number"
+        }
+       },
+       "required": [
+        "hi",
+        "lo",
+        "n",
+        "p"
+       ]
+      },
+      "neutral": {
+       "type": "object",
+       "properties": {
+        "n": {
+         "type": "integer"
+        },
+        "p": {
+         "type": "number"
+        },
+        "lo": {
+         "type": "number"
+        },
+        "hi": {
+         "type": "number"
+        }
+       },
+       "required": [
+        "hi",
+        "lo",
+        "n",
+        "p"
+       ]
+      },
+      "positive": {
+       "type": "object",
+       "properties": {
+        "n": {
+         "type": "integer"
+        },
+        "p": {
+         "type": "number"
+        },
+        "lo": {
+         "type": "number"
+        },
+        "hi": {
+         "type": "number"
+        }
+       },
+       "required": [
+        "hi",
+        "lo",
+        "n",
+        "p"
+       ]
+      }
+     },
+     "required": [
+      "mixed",
+      "negative",
+      "neutral",
+      "positive"
+     ]
+    },
+    "categories": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "name": {
+        "type": "string"
+       },
+       "neg": {
+        "type": "integer"
+       },
+       "mixed": {
+        "type": "integer"
+       },
+       "neutral": {
+        "type": "integer"
+       },
+       "pos": {
+        "type": "integer"
+       },
+       "total": {
+        "type": "integer"
+       },
+       "net": {
+        "type": "number"
+       }
+      },
+      "required": [
+       "mixed",
+       "name",
+       "neg",
+       "net",
+       "neutral",
+       "pos",
+       "total"
+      ]
+     },
+     "minItems": 5,
+     "maxItems": 14
+    }
+   },
+   "required": [
+    "categories",
+    "overall"
+   ]
+  },
+  "issues": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "category": {
+      "type": "string"
+     },
+     "type": {
+      "enum": [
+       "Bug",
+       "Complaint",
+       "Request",
+       "Praise"
+      ]
+     },
+     "definition": {
+      "type": "string"
+     },
+     "counts": {
+      "type": "array",
+      "items": {
+       "type": "integer"
+      }
+     },
+     "n": {
+      "type": "integer"
+     },
+     "wshare": {
+      "type": "number"
+     },
+     "wci": {
+      "type": "array",
+      "items": {
+       "type": "number"
+      }
+     },
+     "per_country": {
+      "type": "array",
+      "items": {
+       "type": "number"
+      }
+     },
+     "cv": {
+      "type": "number"
+     },
+     "chi2": {
+      "type": "number"
+     },
+     "p": {
+      "type": "number"
+     },
+     "cramer": {
+      "type": "number"
+     },
+     "stars": {
+      "type": "object",
+      "properties": {
+       "mean": {
+        "type": "number"
+       },
+       "sd": {
+        "type": "number"
+       },
+       "median": {
+        "type": "integer"
+       },
+       "mode": {
+        "type": "integer"
+       },
+       "cv": {
+        "type": "number"
+       }
+      },
+      "required": [
+       "cv",
+       "mean",
+       "median",
+       "mode",
+       "sd"
+      ]
+     },
+     "gap": {
+      "type": "number"
+     },
+     "gap_ci": {
+      "type": "array",
+      "items": {
+       "type": "number"
+      }
+     },
+     "cohen_d": {
+      "type": "number"
+     },
+     "severity": {
+      "type": [
+       "array",
+       "null"
+      ],
+      "items": {
+       "type": "integer"
+      },
+      "minItems": 4,
+      "maxItems": 4,
+      "description": "Statement counts: blocker, major, minor, cosmetic. null for praise and requests without severity."
+     },
+     "kappa": {
+      "type": "number"
+     },
+     "short_name": {
+      "type": "string",
+      "maxLength": 26,
+      "description": "AI text slot. 2 to 4 words, used as a chart label."
+     },
+     "stage": {
+      "type": [
+       "null",
+       "string"
+      ]
+     },
+     "team": {
+      "type": "object",
+      "properties": {
+       "primary": {
+        "type": "string"
+       },
+       "secondary": {
+        "type": "array",
+        "items": {
+         "type": "string"
+        }
+       }
+      },
+      "required": [
+       "primary",
+       "secondary"
+      ]
+     },
+     "n_low": {
+      "type": "integer"
+     },
+     "n_high": {
+      "type": "integer"
+     }
+    },
+    "required": [
+     "category",
+     "chi2",
+     "cohen_d",
+     "counts",
+     "cramer",
+     "cv",
+     "definition",
+     "gap",
+     "gap_ci",
+     "id",
+     "kappa",
+     "n",
+     "name",
+     "p",
+     "per_country",
+     "severity",
+     "short_name",
+     "stage",
+     "stars",
+     "team",
+     "type",
+     "wci",
+     "wshare"
+    ]
+   }
+  },
+  "patterns": {
+   "type": "object",
+   "properties": {
+    "problems_title": {
+     "type": "string",
+     "maxLength": 90,
+     "description": "AI text slot. One-line finding, under 14 words."
+    },
+    "strengths_title": {
+     "type": "string",
+     "maxLength": 90,
+     "description": "AI text slot. One-line finding, under 14 words."
+    },
+    "caption": {
+     "type": "string",
+     "maxLength": 480,
+     "description": "AI text slot. Under 70 words. Describes which issues come from low or high star reviews."
+    }
+   },
+   "required": [
+    "caption",
+    "problems_title",
+    "strengths_title"
+   ]
+  },
+  "board": {
+   "type": "object",
+   "properties": {
+    "long_tail_issues": {
+     "type": "integer"
+    },
+    "long_tail_reviews": {
+     "type": "integer"
+    },
+    "other_statements": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "long_tail_issues",
+    "long_tail_reviews",
+    "other_statements"
+   ]
+  },
+  "teams": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "n": {
+      "type": "integer"
+     },
+     "w": {
+      "type": "number"
+     },
+     "lo": {
+      "type": "number"
+     },
+     "hi": {
+      "type": "number"
+     },
+     "primary": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "secondary": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     }
+    },
+    "required": [
+     "hi",
+     "lo",
+     "n",
+     "name",
+     "primary",
+     "secondary",
+     "w"
+    ]
+   }
+  },
+  "journey": {
+   "type": "object",
+   "properties": {
+    "stages": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "name": {
+        "type": "string"
+       },
+       "desc": {
+        "type": "string",
+        "maxLength": 40,
+        "description": "AI text slot. What the stage covers, 3 to 6 words."
+       },
+       "neg": {
+        "type": "integer"
+       },
+       "pos": {
+        "type": "integer"
+       },
+       "other": {
+        "type": "integer"
+       },
+       "total": {
+        "type": "integer"
+       },
+       "net": {
+        "type": "number"
+       },
+       "top_problem": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "top_strength": {
+        "type": [
+         "string",
+         "null"
+        ]
+       },
+       "blocker": {
+        "type": "integer"
+       },
+       "source": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "blocker",
+       "desc",
+       "name",
+       "neg",
+       "net",
+       "other",
+       "pos",
+       "source",
+       "top_problem",
+       "top_strength",
+       "total"
+      ]
+     },
+     "minItems": 4,
+     "maxItems": 10
+    },
+    "unassigned": {
+     "type": "integer"
+    }
+   },
+   "required": [
+    "stages",
+    "unassigned"
+   ]
+  },
+  "time": {
+   "type": "object",
+   "properties": {
+    "weeks": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "n_week": {
+     "type": "array",
+     "items": {
+      "type": "integer"
+     }
+    },
+    "recent_from": {
+     "type": "integer"
+    },
+    "excluded_countries": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "releases": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "pos": {
+        "type": "number"
+       },
+       "label": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "label",
+       "pos"
+      ]
+     }
+    },
+    "series": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "id": {
+        "type": "string"
+       },
+       "pts": {
+        "type": "array",
+        "items": {
+         "type": "object",
+         "properties": {
+          "t": {
+           "type": "integer"
+          },
+          "n": {
+           "type": "integer"
+          },
+          "k": {
+           "type": "integer"
+          },
+          "p": {
+           "type": "number"
+          },
+          "lo": {
+           "type": "number"
+          },
+          "hi": {
+           "type": "number"
+          },
+          "countries": {
+           "type": "integer"
+          }
+         },
+         "required": [
+          "countries",
+          "hi",
+          "k",
+          "lo",
+          "n",
+          "p",
+          "t"
+         ]
+        }
+       },
+       "earlier": {
+        "type": "number"
+       },
+       "recent": {
+        "type": "number"
+       },
+       "diff": {
+        "type": "number"
+       },
+       "p_adj": {
+        "type": "number"
+       }
+      },
+      "required": [
+       "diff",
+       "earlier",
+       "id",
+       "p_adj",
+       "pts",
+       "recent"
+      ]
+     }
+    }
+   },
+   "required": [
+    "excluded_countries",
+    "n_week",
+    "recent_from",
+    "releases",
+    "series",
+    "weeks"
+   ],
+   "description": "Optional. The section is hidden when there are fewer than 6 weeks with at least 50 reviews."
+  },
+  "quotes": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "issue_id": {
+      "type": "string"
+     },
+     "text": {
+      "type": "string"
+     },
+     "translation": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "review_id": {
+      "type": "string"
+     },
+     "stars": {
+      "type": "integer"
+     },
+     "version": {
+      "type": "string"
+     },
+     "country": {
+      "type": "string"
+     }
+    },
+    "required": [
+     "country",
+     "issue_id",
+     "review_id",
+     "stars",
+     "text",
+     "translation",
+     "version"
+    ]
+   }
+  },
+  "reliability": {
+   "type": "object",
+   "properties": {
+    "gates": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "status": {
+        "enum": [
+         "pass",
+         "flag"
+        ]
+       },
+       "text": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "status",
+       "text"
+      ]
+     }
+    },
+    "limits": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   },
+   "required": [
+    "gates",
+    "limits"
+   ]
+  },
+  "glossary_examples": {
+   "type": "object",
+   "description": "AI text slot. One worked example per measure used, under 50 words, numbers copied from stats.json.",
+   "properties": {
+    "stratified_share": {
+     "type": "string",
+     "maxLength": 340
+    },
+    "ci": {
+     "type": "string",
+     "maxLength": 340
+    },
+    "mean_median_mode": {
+     "type": "string",
+     "maxLength": 340
+    },
+    "sd": {
+     "type": "string",
+     "maxLength": 340
+    },
+    "cv": {
+     "type": "string",
+     "maxLength": 340
+    },
+    "rating_gap": {
+     "type": "string",
+     "maxLength": 340
+    },
+    "cohens_d": {
+     "type": "string",
+     "maxLength": 340
+    },
+    "net_sentiment": {
+     "type": "string",
+     "maxLength": 340
+    },
+    "blocker_share": {
+     "type": "string",
+     "maxLength": 340
+    },
+    "cmh": {
+     "type": "string",
+     "maxLength": 340
+    },
+    "holm": {
+     "type": "string",
+     "maxLength": 340
+    },
+    "chi_square": {
+     "type": "string",
+     "maxLength": 340
+    },
+    "kappa": {
+     "type": "string",
+     "maxLength": 340
+    }
+   },
+   "additionalProperties": false
+  },
+  "workflow": {
+   "type": "object",
+   "properties": {
+    "steps": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "actor": {
+        "enum": [
+         "ai",
+         "code"
+        ]
+       },
+       "title": {
+        "type": "string"
+       },
+       "text": {
+        "type": "string"
+       }
+      },
+      "required": [
+       "actor",
+       "text",
+       "title"
+      ]
+     }
+    },
+    "funnel": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "label": {
+        "type": "string"
+       },
+       "n": {
+        "type": "integer"
+       }
+      },
+      "required": [
+       "label",
+       "n"
+      ]
+     }
+    }
+   },
+   "required": [
+    "funnel",
+    "steps"
+   ]
+  }
+ },
+ "required": [
+  "about",
+  "board",
+  "countries",
+  "country_selection",
+  "glossary_examples",
+  "issues",
+  "journey",
+  "meta",
+  "mix",
+  "patterns",
+  "quotes",
+  "reliability",
+  "schema_version",
+  "sentiment",
+  "summary",
+  "teams",
+  "workflow"
+ ],
+ "title": "App Review UX Report data",
+ "description": "The only input to report-template.html. Produced by stats.py (numbers) and report-writer (text slots). The template is never edited per run."
+}

@@ -1,0 +1,120 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "issue",
+ "type": "object",
+ "properties": {
+  "issue_id": {
+   "type": "string",
+   "pattern": "^[a-z0-9][a-z0-9-]*$"
+  },
+  "name": {
+   "type": "string",
+   "minLength": 3
+  },
+  "short_name": {
+   "type": "string",
+   "maxLength": 26
+  },
+  "definition": {
+   "type": "string"
+  },
+  "category_id": {
+   "type": "string"
+  },
+  "dominant_type": {
+   "enum": [
+    "Bug report",
+    "Complaint",
+    "Feature request",
+    "Praise",
+    "Question",
+    "Comparison",
+    "Other"
+   ]
+  },
+  "stage_id": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "ux_dimension": {
+   "enum": [
+    "Usability",
+    "Reliability",
+    "Performance",
+    "Visual design",
+    "Content and copy",
+    "Functionality",
+    "Trust and safety",
+    "Value and pricing",
+    "Support",
+    "Accessibility"
+   ]
+  },
+  "team_primary": {
+   "enum": [
+    "Mobile engineering",
+    "Backend and platform engineering",
+    "QA and release",
+    "UX design",
+    "UI and visual design",
+    "Content and localization",
+    "Product management",
+    "Payments and billing",
+    "Marketing and CRM",
+    "Customer support",
+    "Operations and fulfilment",
+    "Security and privacy",
+    "Accessibility"
+   ]
+  },
+  "team_secondary": {
+   "type": "array",
+   "items": {
+    "enum": [
+     "Mobile engineering",
+     "Backend and platform engineering",
+     "QA and release",
+     "UX design",
+     "UI and visual design",
+     "Content and localization",
+     "Product management",
+     "Payments and billing",
+     "Marketing and CRM",
+     "Customer support",
+     "Operations and fulfilment",
+     "Security and privacy",
+     "Accessibility"
+    ]
+   },
+   "maxItems": 2
+  },
+  "source_groups": {
+   "type": "array",
+   "items": {
+    "type": "string"
+   }
+  },
+  "recurring": {
+   "type": [
+    "boolean",
+    "null"
+   ]
+  }
+ },
+ "required": [
+  "issue_id",
+  "name",
+  "short_name",
+  "definition",
+  "category_id",
+  "dominant_type",
+  "stage_id",
+  "ux_dimension",
+  "team_primary",
+  "team_secondary",
+  "source_groups"
+ ],
+ "additionalProperties": true
+}

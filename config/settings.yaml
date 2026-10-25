@@ -1,0 +1,68 @@
+# App Review UX Report Agent: configuration defaults (PRD section 16).
+# Every value can be overridden per run:  ./run.sh "App name" --set reviews_per_country=200
+
+# Countries (section 8)
+candidate_countries: [us, gb, de, fr, jp, ca, au, cn, kr, it, es, br, mx, in, nl, ru, tr, se, ch, tw,
+                      hk, pl, be, at, no, dk, fi, ie, nz, sg, my, th, id, ph, vn, sa, ae, il, za, ar,
+                      cl, co, pt, cz, gr, hu, ro, ua, eg, pe]
+rating_coverage_target: 0.80
+countries_min: 3
+countries_max: 10
+
+# Collection
+reviews_per_country: 500
+review_page_size: 20          # the App Store web catalog serves 20 reviews per page
+lookup_calls_per_minute: 20   # Apple lookup and search services (NFR-2)
+review_calls_per_minute: 40   # App Store web catalog (reviews, listing); Apple answers 429 above this
+
+# AI steps
+extraction_batch_size: 40     # reviews per statement-extractor call
+assignment_batch_size: 150    # statements per issue-assigner call
+namer_max_single_phrases: 400 # unclustered phrases shown to the issue-namer
+second_pass_batch_size: 40    # statements per second-rater call
+second_pass_share: 0.10
+second_pass_min_per_issue: 5
+ai_concurrency: 8
+ai_timeout_seconds: {fast: 600, strong: 900}
+ai_effort: {fast: low, strong: medium}   # reasoning effort per call (claude-cli backend)
+ai_backend: auto              # auto | claude-cli | anthropic
+models:
+  fast: claude-haiku-5-5
+  strong: claude-opus-5-5
+
+# Issue discovery (section 7)
+embedding_model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+min_cluster_size: 3
+min_cluster_size_retry: 2
+repetition_min_reviews: 5
+repetition_min_share: 0.005
+
+# Derived structure (section 9.6)
+categories_min: 5
+categories_max: 14
+category_min_issues: 2
+category_min_review_share: 0.02
+stages_min: 4
+stages_max: 10
+secondary_teams_max: 2
+
+# Quality gates (section 13)
+kappa_flag: 0.70
+other_limit: 0.15
+min_reviews_country: 50
+min_reviews_version: 100
+min_reviews_week_solid: 50
+min_group_for_tests: 30
+min_problem_statements_blocker: 30
+
+# Statistics
+confidence: 0.95
+time_top_problems: 5
+recent_weeks: 4
+min_solid_weeks_for_time: 6
+quotes_per_issue_card: 3
+quote_max_words: 40
+random_seed: 42
+
+# Report
+template_version: "1.1"

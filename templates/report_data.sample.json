@@ -1,0 +1,2460 @@
+{
+ "schema_version": "1.0",
+ "meta": {
+  "app_name": "ShopNest: Shop & Delivery",
+  "app_short": "ShopNest",
+  "app_id": "1690042117",
+  "run_date": "2026-10-20",
+  "period_start": "2026-07-18",
+  "period_end": "2026-10-19",
+  "countries": [
+   "US",
+   "GB",
+   "DE",
+   "FR",
+   "CA",
+   "AU"
+  ],
+  "n_reviews": 2978,
+  "n_statements": 6912,
+  "n_statements_kept": 6904,
+  "mean_stars": 3.25,
+  "kappa": 0.81,
+  "repetition_threshold": 15,
+  "languages": [
+   "English",
+   "German",
+   "French"
+  ],
+  "second_pass_n": 691,
+  "notice": "**Sample report.** ShopNest is a made-up app. Every number, quote and review ID on this page is invented to show what the agent produces."
+ },
+ "summary": [
+  "The most raised problem is **Apple Pay payment fails at checkout**: 8.0% of reviews (95% CI 6.7 to 9.4%). Reviews that raise it average 2.1 fewer stars than reviews that don't.",
+  "**Logged out after app update** rose from 1.8% of reviews in earlier weeks to 9.0% in the last four (compared within countries, adjusted p < 0.001), starting the week version 8.5 was released. The other top problems did not change significantly.",
+  "The most raised strength is **fast, simple checkout** (10.0%). Checkout holds the top strength and two of the top three problems.",
+  "13.9% of 4 and 5 star reviews still report at least one problem (95% CI 12.3 to 15.7%).",
+  "Along the journey, **sign in** and **help chat** are the most negative stages (net sentiment −71 each); **finding groceries** is the most positive (+30).",
+  "Country differences are negligible for every problem (Cramér's V under 0.1) except **German text cut off or wrongly translated**, raised only in Germany, by 8.2% of its reviews."
+ ],
+ "about": {
+  "description": "Groceries and household essentials delivered in under an hour. Sign in with one tap, browse thousands of products, save with promo codes, pay with Apple Pay, track your driver live and reorder favourites in one tap. Questions? Our in-app help chat is open 24/7.",
+  "description_source": "App Store description, first paragraph",
+  "developer": "ShopNest Ltd.",
+  "category": "Shopping",
+  "price": "Free, no in-app purchases",
+  "current_version": "8.5",
+  "current_version_date": "2026-10-03",
+  "store_rating": 4.2,
+  "store_rating_country": "US",
+  "store_rating_count": 412000,
+  "languages_label": "English, German, French and 4 more",
+  "features": [
+   "One-tap sign in",
+   "Promo codes",
+   "Apple Pay",
+   "Live driver tracking",
+   "One-tap reorder",
+   "24/7 help chat"
+  ],
+  "versions": [
+   {
+    "version": "8.5",
+    "date": "2026-10-03",
+    "notes": "A new, faster sign-in. Bug fixes and performance improvements."
+   },
+   {
+    "version": "8.4",
+    "date": "2026-08-28",
+    "notes": "New checkout with saved cards and Apple Pay improvements."
+   },
+   {
+    "version": "8.3",
+    "date": "2026-07-09",
+    "notes": "Faster product pages. Bug fixes."
+   }
+  ]
+ },
+ "countries": [
+  {
+   "code": "US",
+   "name": "United States",
+   "ratings": 412000,
+   "weight": 45.5,
+   "n": 498,
+   "window": "Oct 6 to Oct 19",
+   "days": 14,
+   "lang": "English"
+  },
+  {
+   "code": "GB",
+   "name": "United Kingdom",
+   "ratings": 168000,
+   "weight": 18.6,
+   "n": 499,
+   "window": "Sep 12 to Oct 19",
+   "days": 38,
+   "lang": "English"
+  },
+  {
+   "code": "DE",
+   "name": "Germany",
+   "ratings": 121000,
+   "weight": 13.4,
+   "n": 497,
+   "window": "Aug 30 to Oct 19",
+   "days": 51,
+   "lang": "German"
+  },
+  {
+   "code": "FR",
+   "name": "France",
+   "ratings": 88000,
+   "weight": 9.7,
+   "n": 500,
+   "window": "Aug 21 to Oct 19",
+   "days": 60,
+   "lang": "French"
+  },
+  {
+   "code": "CA",
+   "name": "Canada",
+   "ratings": 64000,
+   "weight": 7.1,
+   "n": 498,
+   "window": "Aug 2 to Oct 19",
+   "days": 79,
+   "lang": "English, French"
+  },
+  {
+   "code": "AU",
+   "name": "Australia",
+   "ratings": 52000,
+   "weight": 5.7,
+   "n": 486,
+   "window": "Jul 18 to Oct 19",
+   "days": 94,
+   "lang": "English"
+  }
+ ],
+ "country_selection": {
+  "candidates": 50,
+  "coverage": 83.5,
+  "target": 80
+ },
+ "mix": {
+  "5": [
+   22,
+   128,
+   1010,
+   68
+  ],
+  "4": [
+   25,
+   44,
+   251,
+   25
+  ],
+  "3": [
+   92,
+   88,
+   49,
+   18
+  ],
+  "2": [
+   214,
+   41,
+   6,
+   10
+  ],
+  "1": [
+   822,
+   38,
+   3,
+   24
+  ]
+ },
+ "sentiment": {
+  "overall": {
+   "negative": {
+    "n": 3189,
+    "p": 46.2,
+    "lo": 45.0,
+    "hi": 47.4
+   },
+   "mixed": {
+    "n": 345,
+    "p": 5.0,
+    "lo": 4.5,
+    "hi": 5.5
+   },
+   "neutral": {
+    "n": 875,
+    "p": 12.7,
+    "lo": 11.9,
+    "hi": 13.5
+   },
+   "positive": {
+    "n": 2495,
+    "p": 36.1,
+    "lo": 35.0,
+    "hi": 37.3
+   }
+  },
+  "categories": [
+   {
+    "name": "Payments",
+    "neg": 880,
+    "mixed": 70,
+    "neutral": 110,
+    "pos": 660,
+    "total": 1720,
+    "net": -12.8
+   },
+   {
+    "name": "Orders and delivery",
+    "neg": 470,
+    "mixed": 55,
+    "neutral": 135,
+    "pos": 580,
+    "total": 1240,
+    "net": 8.9
+   },
+   {
+    "name": "Sign in and account",
+    "neg": 470,
+    "mixed": 25,
+    "neutral": 75,
+    "pos": 40,
+    "total": 610,
+    "net": -70.5
+   },
+   {
+    "name": "Browse and search",
+    "neg": 190,
+    "mixed": 25,
+    "neutral": 55,
+    "pos": 190,
+    "total": 460,
+    "net": 0.0
+   },
+   {
+    "name": "Value and pricing",
+    "neg": 110,
+    "mixed": 35,
+    "neutral": 60,
+    "pos": 375,
+    "total": 580,
+    "net": 45.7
+   },
+   {
+    "name": "Visual design",
+    "neg": 75,
+    "mixed": 35,
+    "neutral": 52,
+    "pos": 430,
+    "total": 592,
+    "net": 60.0
+   },
+   {
+    "name": "Support",
+    "neg": 250,
+    "mixed": 15,
+    "neutral": 35,
+    "pos": 30,
+    "total": 330,
+    "net": -66.7
+   },
+   {
+    "name": "Performance",
+    "neg": 230,
+    "mixed": 10,
+    "neutral": 30,
+    "pos": 30,
+    "total": 300,
+    "net": -66.7
+   },
+   {
+    "name": "Notifications",
+    "neg": 140,
+    "mixed": 10,
+    "neutral": 30,
+    "pos": 30,
+    "total": 210,
+    "net": -52.4
+   },
+   {
+    "name": "Content and copy",
+    "neg": 120,
+    "mixed": 15,
+    "neutral": 25,
+    "pos": 30,
+    "total": 190,
+    "net": -47.4
+   },
+   {
+    "name": "Settings",
+    "neg": 40,
+    "mixed": 10,
+    "neutral": 70,
+    "pos": 40,
+    "total": 160,
+    "net": 0.0
+   }
+  ]
+ },
+ "issues": [
+  {
+   "id": "pay-applepay",
+   "name": "Apple Pay payment fails at checkout",
+   "category": "Payments",
+   "type": "Bug",
+   "definition": "Payment with Apple Pay fails, freezes, or is declined inside the app.",
+   "counts": [
+    52,
+    38,
+    21,
+    24,
+    34,
+    27
+   ],
+   "n": 196,
+   "wshare": 8.0,
+   "wci": [
+    6.66,
+    9.35
+   ],
+   "per_country": [
+    10.44,
+    7.62,
+    4.23,
+    4.8,
+    6.83,
+    5.56
+   ],
+   "cv": 34.5,
+   "chi2": 20.9,
+   "p": 0.000851,
+   "cramer": 0.084,
+   "stars": {
+    "mean": 1.31,
+    "sd": 0.62,
+    "median": 1,
+    "mode": 1,
+    "cv": 47.3
+   },
+   "gap": -2.08,
+   "gap_ci": [
+    -2.19,
+    -1.97
+   ],
+   "cohen_d": -1.6,
+   "severity": [
+    158,
+    52,
+    19,
+    3
+   ],
+   "kappa": 0.88,
+   "short_name": "Apple Pay fails",
+   "stage": "Checkout",
+   "team": {
+    "primary": "Payments and billing",
+    "secondary": [
+     "Backend and platform engineering",
+     "Mobile engineering"
+    ]
+   },
+   "n_low": 186
+  },
+  {
+   "id": "acct-logout",
+   "name": "Logged out after app update",
+   "category": "Sign in and account",
+   "type": "Bug",
+   "definition": "The app signs the reviewer out after an update and asks them to sign in again.",
+   "counts": [
+    44,
+    31,
+    29,
+    26,
+    30,
+    22
+   ],
+   "n": 182,
+   "wshare": 7.15,
+   "wci": [
+    5.89,
+    8.41
+   ],
+   "per_country": [
+    8.84,
+    6.21,
+    5.84,
+    5.2,
+    6.02,
+    4.53
+   ],
+   "cv": 24.1,
+   "chi2": 9.4,
+   "p": 0.0951,
+   "cramer": 0.056,
+   "stars": {
+    "mean": 1.64,
+    "sd": 0.88,
+    "median": 1,
+    "mode": 1,
+    "cv": 53.7
+   },
+   "gap": -1.72,
+   "gap_ci": [
+    -1.86,
+    -1.58
+   ],
+   "cohen_d": -1.25,
+   "severity": [
+    71,
+    88,
+    52,
+    9
+   ],
+   "kappa": 0.91,
+   "short_name": "Logged out after update",
+   "stage": "Sign in",
+   "team": {
+    "primary": "Mobile engineering",
+    "secondary": [
+     "QA and release"
+    ]
+   },
+   "n_low": 158
+  },
+  {
+   "id": "pay-fee",
+   "name": "Delivery fee shown only at last step",
+   "category": "Payments",
+   "type": "Complaint",
+   "definition": "The delivery fee first appears on the final checkout screen.",
+   "counts": [
+    31,
+    22,
+    24,
+    13,
+    19,
+    14
+   ],
+   "n": 123,
+   "wshare": 4.99,
+   "wci": [
+    3.91,
+    6.06
+   ],
+   "per_country": [
+    6.22,
+    4.41,
+    4.83,
+    2.6,
+    3.82,
+    2.88
+   ],
+   "cv": 32.4,
+   "chi2": 11.2,
+   "p": 0.0471,
+   "cramer": 0.061,
+   "stars": {
+    "mean": 2.12,
+    "sd": 1.05,
+    "median": 2,
+    "mode": 1,
+    "cv": 49.5
+   },
+   "gap": -1.18,
+   "gap_ci": [
+    -1.38,
+    -0.99
+   ],
+   "cohen_d": -0.83,
+   "severity": [
+    9,
+    61,
+    58,
+    8
+   ],
+   "kappa": 0.83,
+   "short_name": "Late delivery fee",
+   "stage": "Checkout",
+   "team": {
+    "primary": "UX design",
+    "secondary": [
+     "Product management"
+    ]
+   },
+   "n_low": 88
+  },
+  {
+   "id": "ord-tracking",
+   "name": "Order tracking map stops updating",
+   "category": "Orders and delivery",
+   "type": "Bug",
+   "definition": "The live map or order status freezes and no longer shows where the order is.",
+   "counts": [
+    29,
+    17,
+    12,
+    15,
+    16,
+    9
+   ],
+   "n": 98,
+   "wshare": 4.23,
+   "wci": [
+    3.21,
+    5.25
+   ],
+   "per_country": [
+    5.82,
+    3.41,
+    2.41,
+    3.0,
+    3.21,
+    1.85
+   ],
+   "cv": 41.6,
+   "chi2": 14.6,
+   "p": 0.0124,
+   "cramer": 0.07,
+   "stars": {
+    "mean": 1.93,
+    "sd": 0.97,
+    "median": 2,
+    "mode": 1,
+    "cv": 50.3
+   },
+   "gap": -1.37,
+   "gap_ci": [
+    -1.57,
+    -1.17
+   ],
+   "cohen_d": -0.98,
+   "severity": [
+    22,
+    51,
+    33,
+    4
+   ],
+   "kappa": 0.8,
+   "short_name": "Tracking stops",
+   "stage": "Live delivery tracking",
+   "team": {
+    "primary": "Backend and platform engineering",
+    "secondary": [
+     "Operations and fulfilment"
+    ]
+   },
+   "n_low": 79
+  },
+  {
+   "id": "pay-promo",
+   "name": "Promo code rejected with no reason",
+   "category": "Payments",
+   "type": "Complaint",
+   "definition": "A promo code is refused and the app gives no reason.",
+   "counts": [
+    24,
+    19,
+    9,
+    12,
+    14,
+    11
+   ],
+   "n": 89,
+   "wshare": 3.71,
+   "wci": [
+    2.76,
+    4.65
+   ],
+   "per_country": [
+    4.82,
+    3.81,
+    1.81,
+    2.4,
+    2.81,
+    2.26
+   ],
+   "cv": 37.6,
+   "chi2": 10.8,
+   "p": 0.055,
+   "cramer": 0.06,
+   "stars": {
+    "mean": 1.84,
+    "sd": 0.91,
+    "median": 2,
+    "mode": 1,
+    "cv": 49.5
+   },
+   "gap": -1.46,
+   "gap_ci": [
+    -1.66,
+    -1.26
+   ],
+   "cohen_d": -1.06,
+   "severity": [
+    31,
+    40,
+    25,
+    2
+   ],
+   "kappa": 0.78,
+   "short_name": "Promo code rejected",
+   "stage": "Basket and promo codes",
+   "team": {
+    "primary": "Marketing and CRM",
+    "secondary": [
+     "Content and localization"
+    ]
+   },
+   "n_low": 76
+  },
+  {
+   "id": "sup-loop",
+   "name": "Support chat loops on automated replies",
+   "category": "Support",
+   "type": "Complaint",
+   "definition": "The support chat repeats automated answers and does not reach a person.",
+   "counts": [
+    22,
+    16,
+    13,
+    11,
+    12,
+    9
+   ],
+   "n": 83,
+   "wshare": 3.45,
+   "wci": [
+    2.54,
+    4.35
+   ],
+   "per_country": [
+    4.42,
+    3.21,
+    2.62,
+    2.2,
+    2.41,
+    1.85
+   ],
+   "cv": 33.0,
+   "chi2": 7.7,
+   "p": 0.172,
+   "cramer": 0.051,
+   "stars": {
+    "mean": 1.42,
+    "sd": 0.71,
+    "median": 1,
+    "mode": 1,
+    "cv": 50.0
+   },
+   "gap": -1.89,
+   "gap_ci": [
+    -2.05,
+    -1.72
+   ],
+   "cohen_d": -1.43,
+   "severity": [
+    40,
+    34,
+    17,
+    1
+   ],
+   "kappa": 0.85,
+   "short_name": "Support chat loops",
+   "stage": "Help chat",
+   "team": {
+    "primary": "Customer support",
+    "secondary": [
+     "Product management"
+    ]
+   },
+   "n_low": 78
+  },
+  {
+   "id": "perf-product",
+   "name": "Product pages slow to load",
+   "category": "Performance",
+   "type": "Complaint",
+   "definition": "Product pages take several seconds to load or show blank images.",
+   "counts": [
+    18,
+    14,
+    11,
+    10,
+    9,
+    8
+   ],
+   "n": 70,
+   "wshare": 2.88,
+   "wci": [
+    2.05,
+    3.71
+   ],
+   "per_country": [
+    3.61,
+    2.81,
+    2.21,
+    2.0,
+    1.81,
+    1.65
+   ],
+   "cv": 31.5,
+   "chi2": 5.9,
+   "p": 0.314,
+   "cramer": 0.045,
+   "stars": {
+    "mean": 2.41,
+    "sd": 1.12,
+    "median": 2,
+    "mode": 2,
+    "cv": 46.5
+   },
+   "gap": -0.86,
+   "gap_ci": [
+    -1.13,
+    -0.59
+   ],
+   "cohen_d": -0.59,
+   "severity": [
+    4,
+    23,
+    46,
+    5
+   ],
+   "kappa": 0.74,
+   "short_name": "Slow product pages",
+   "stage": "Product page",
+   "team": {
+    "primary": "Backend and platform engineering",
+    "secondary": [
+     "Mobile engineering"
+    ]
+   },
+   "n_low": 38
+  },
+  {
+   "id": "srch-filters",
+   "name": "Search ignores selected filters",
+   "category": "Browse and search",
+   "type": "Bug",
+   "definition": "Search results include items outside the filters the reviewer chose.",
+   "counts": [
+    14,
+    10,
+    9,
+    8,
+    7,
+    6
+   ],
+   "n": 54,
+   "wshare": 2.22,
+   "wci": [
+    1.49,
+    2.95
+   ],
+   "per_country": [
+    2.81,
+    2.0,
+    1.81,
+    1.6,
+    1.41,
+    1.23
+   ],
+   "cv": 31.0,
+   "chi2": 4.4,
+   "p": 0.494,
+   "cramer": 0.038,
+   "stars": {
+    "mean": 2.22,
+    "sd": 1.02,
+    "median": 2,
+    "mode": 2,
+    "cv": 45.9
+   },
+   "gap": -1.05,
+   "gap_ci": [
+    -1.33,
+    -0.77
+   ],
+   "cohen_d": -0.74,
+   "severity": [
+    6,
+    25,
+    24,
+    3
+   ],
+   "kappa": 0.69,
+   "short_name": "Search ignores filters",
+   "stage": "Find groceries",
+   "team": {
+    "primary": "Backend and platform engineering",
+    "secondary": [
+     "QA and release"
+    ]
+   },
+   "n_low": 37
+  },
+  {
+   "id": "ntf-volume",
+   "name": "Too many push notifications",
+   "category": "Notifications",
+   "type": "Complaint",
+   "definition": "The app sends more marketing notifications than the reviewer wants.",
+   "counts": [
+    12,
+    9,
+    6,
+    7,
+    5,
+    4
+   ],
+   "n": 43,
+   "wshare": 1.85,
+   "wci": [
+    1.17,
+    2.52
+   ],
+   "per_country": [
+    2.41,
+    1.8,
+    1.21,
+    1.4,
+    1.0,
+    0.82
+   ],
+   "cv": 40.4,
+   "chi2": 5.9,
+   "p": 0.315,
+   "cramer": 0.045,
+   "stars": {
+    "mean": 2.86,
+    "sd": 1.21,
+    "median": 3,
+    "mode": 3,
+    "cv": 42.3
+   },
+   "gap": -0.4,
+   "gap_ci": [
+    -0.77,
+    -0.03
+   ],
+   "cohen_d": -0.27,
+   "severity": [
+    0,
+    6,
+    33,
+    8
+   ],
+   "kappa": 0.83,
+   "short_name": "Too many notifications",
+   "stage": null,
+   "team": {
+    "primary": "Marketing and CRM",
+    "secondary": []
+   },
+   "n_low": 17
+  },
+  {
+   "id": "ord-address",
+   "name": "Cannot change address after ordering",
+   "category": "Orders and delivery",
+   "type": "Request",
+   "definition": "The reviewer wants to edit the delivery address after placing an order.",
+   "counts": [
+    10,
+    7,
+    5,
+    6,
+    5,
+    4
+   ],
+   "n": 37,
+   "wshare": 1.54,
+   "wci": [
+    0.93,
+    2.16
+   ],
+   "per_country": [
+    2.01,
+    1.4,
+    1.01,
+    1.2,
+    1.0,
+    0.82
+   ],
+   "cv": 34.2,
+   "chi2": 3.6,
+   "p": 0.602,
+   "cramer": 0.035,
+   "stars": {
+    "mean": 2.31,
+    "sd": 1.1,
+    "median": 2,
+    "mode": 2,
+    "cv": 47.6
+   },
+   "gap": -0.96,
+   "gap_ci": [
+    -1.32,
+    -0.6
+   ],
+   "cohen_d": -0.66,
+   "severity": [
+    8,
+    14,
+    15,
+    2
+   ],
+   "kappa": 0.62,
+   "short_name": "Can't change address",
+   "stage": "Live delivery tracking",
+   "team": {
+    "primary": "Product management",
+    "secondary": [
+     "Operations and fulfilment"
+    ]
+   },
+   "n_low": 23
+  },
+  {
+   "id": "set-dark",
+   "name": "Wants dark mode",
+   "category": "Settings",
+   "type": "Request",
+   "definition": "The reviewer asks for a dark theme.",
+   "counts": [
+    9,
+    8,
+    6,
+    5,
+    6,
+    5
+   ],
+   "n": 39,
+   "wshare": 1.52,
+   "wci": [
+    0.93,
+    2.12
+   ],
+   "per_country": [
+    1.81,
+    1.6,
+    1.21,
+    1.0,
+    1.2,
+    1.03
+   ],
+   "cv": 24.9,
+   "chi2": 2.0,
+   "p": 0.844,
+   "cramer": 0.026,
+   "stars": {
+    "mean": 3.82,
+    "sd": 1.08,
+    "median": 4,
+    "mode": 4,
+    "cv": 28.3
+   },
+   "gap": 0.57,
+   "gap_ci": [
+    0.23,
+    0.92
+   ],
+   "cohen_d": 0.4,
+   "severity": null,
+   "kappa": 0.93,
+   "short_name": "Wants dark mode",
+   "stage": null,
+   "team": {
+    "primary": "UI and visual design",
+    "secondary": []
+   },
+   "n_low": 4
+  },
+  {
+   "id": "copy-german",
+   "name": "German text cut off or wrongly translated",
+   "category": "Content and copy",
+   "type": "Complaint",
+   "definition": "German labels are cut off, overlap, or use a wrong translation.",
+   "counts": [
+    0,
+    0,
+    41,
+    0,
+    0,
+    0
+   ],
+   "n": 41,
+   "wshare": 1.1,
+   "wci": [
+    0.78,
+    1.43
+   ],
+   "per_country": [
+    0.0,
+    0.0,
+    8.25,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "cv": 244.9,
+   "chi2": 207.5,
+   "p": 6.96e-43,
+   "cramer": 0.264,
+   "stars": {
+    "mean": 2.59,
+    "sd": 1.07,
+    "median": 3,
+    "mode": 2,
+    "cv": 41.3
+   },
+   "gap": -0.67,
+   "gap_ci": [
+    -1.01,
+    -0.34
+   ],
+   "cohen_d": -0.47,
+   "severity": [
+    3,
+    9,
+    24,
+    9
+   ],
+   "kappa": 0.79,
+   "short_name": "German text issues",
+   "stage": null,
+   "team": {
+    "primary": "Content and localization",
+    "secondary": [
+     "UI and visual design"
+    ]
+   },
+   "n_low": 18
+  },
+  {
+   "id": "s-checkout",
+   "name": "Fast, simple checkout",
+   "category": "Payments",
+   "type": "Praise",
+   "definition": "Paying is quick and takes few steps.",
+   "counts": [
+    61,
+    47,
+    33,
+    41,
+    39,
+    36
+   ],
+   "n": 257,
+   "wshare": 9.99,
+   "wci": [
+    8.53,
+    11.45
+   ],
+   "per_country": [
+    12.25,
+    9.42,
+    6.64,
+    8.2,
+    7.83,
+    7.41
+   ],
+   "cv": 23.2,
+   "chi2": 12.6,
+   "p": 0.0274,
+   "cramer": 0.065,
+   "stars": {
+    "mean": 4.81,
+    "sd": 0.44,
+    "median": 5,
+    "mode": 5,
+    "cv": 9.1
+   },
+   "gap": 1.7,
+   "gap_ci": [
+    1.62,
+    1.79
+   ],
+   "cohen_d": 1.35,
+   "severity": null,
+   "kappa": 0.87,
+   "short_name": "Fast checkout",
+   "stage": "Checkout",
+   "team": {
+    "primary": "Payments and billing",
+    "secondary": []
+   },
+   "n_high": 241
+  },
+  {
+   "id": "s-delivery",
+   "name": "Deliveries arrive quickly",
+   "category": "Orders and delivery",
+   "type": "Praise",
+   "definition": "Orders arrive sooner than expected.",
+   "counts": [
+    48,
+    39,
+    31,
+    35,
+    30,
+    33
+   ],
+   "n": 216,
+   "wshare": 8.17,
+   "wci": [
+    6.85,
+    9.49
+   ],
+   "per_country": [
+    9.64,
+    7.82,
+    6.24,
+    7.0,
+    6.02,
+    6.79
+   ],
+   "cv": 18.3,
+   "chi2": 6.5,
+   "p": 0.258,
+   "cramer": 0.047,
+   "stars": {
+    "mean": 4.72,
+    "sd": 0.53,
+    "median": 5,
+    "mode": 5,
+    "cv": 11.2
+   },
+   "gap": 1.58,
+   "gap_ci": [
+    1.49,
+    1.68
+   ],
+   "cohen_d": 1.24,
+   "severity": null,
+   "kappa": 0.9,
+   "short_name": "Quick delivery",
+   "stage": "Live delivery tracking",
+   "team": {
+    "primary": "Operations and fulfilment",
+    "secondary": []
+   },
+   "n_high": 199
+  },
+  {
+   "id": "s-design",
+   "name": "Clean, easy-to-read design",
+   "category": "Visual design",
+   "type": "Praise",
+   "definition": "The screens are clear, tidy and easy to read.",
+   "counts": [
+    37,
+    29,
+    22,
+    28,
+    24,
+    25
+   ],
+   "n": 165,
+   "wshare": 6.23,
+   "wci": [
+    5.06,
+    7.41
+   ],
+   "per_country": [
+    7.43,
+    5.81,
+    4.43,
+    5.6,
+    4.82,
+    5.14
+   ],
+   "cv": 19.0,
+   "chi2": 5.3,
+   "p": 0.382,
+   "cramer": 0.042,
+   "stars": {
+    "mean": 4.58,
+    "sd": 0.66,
+    "median": 5,
+    "mode": 5,
+    "cv": 14.4
+   },
+   "gap": 1.4,
+   "gap_ci": [
+    1.28,
+    1.52
+   ],
+   "cohen_d": 1.07,
+   "severity": null,
+   "kappa": 0.82,
+   "short_name": "Clean design",
+   "stage": null,
+   "team": {
+    "primary": "UI and visual design",
+    "secondary": []
+   },
+   "n_high": 148
+  },
+  {
+   "id": "s-deals",
+   "name": "Good deals and prices",
+   "category": "Value and pricing",
+   "type": "Praise",
+   "definition": "Prices and discounts are better than other shops.",
+   "counts": [
+    33,
+    24,
+    19,
+    22,
+    21,
+    18
+   ],
+   "n": 137,
+   "wshare": 5.36,
+   "wci": [
+    4.26,
+    6.46
+   ],
+   "per_country": [
+    6.63,
+    4.81,
+    3.82,
+    4.4,
+    4.22,
+    3.7
+   ],
+   "cv": 23.3,
+   "chi2": 6.5,
+   "p": 0.261,
+   "cramer": 0.047,
+   "stars": {
+    "mean": 4.69,
+    "sd": 0.58,
+    "median": 5,
+    "mode": 5,
+    "cv": 12.4
+   },
+   "gap": 1.51,
+   "gap_ci": [
+    1.39,
+    1.62
+   ],
+   "cohen_d": 1.17,
+   "severity": null,
+   "kappa": 0.8,
+   "short_name": "Good deals",
+   "stage": "Find groceries",
+   "team": {
+    "primary": "Marketing and CRM",
+    "secondary": []
+   },
+   "n_high": 124
+  },
+  {
+   "id": "s-reorder",
+   "name": "Easy to reorder past items",
+   "category": "Orders and delivery",
+   "type": "Praise",
+   "definition": "Past orders can be repeated in a few taps.",
+   "counts": [
+    19,
+    15,
+    9,
+    12,
+    11,
+    12
+   ],
+   "n": 78,
+   "wshare": 3.07,
+   "wci": [
+    2.22,
+    3.92
+   ],
+   "per_country": [
+    3.82,
+    3.01,
+    1.81,
+    2.4,
+    2.21,
+    2.47
+   ],
+   "cv": 26.9,
+   "chi2": 4.8,
+   "p": 0.438,
+   "cramer": 0.04,
+   "stars": {
+    "mean": 4.77,
+    "sd": 0.49,
+    "median": 5,
+    "mode": 5,
+    "cv": 10.3
+   },
+   "gap": 1.56,
+   "gap_ci": [
+    1.43,
+    1.68
+   ],
+   "cohen_d": 1.23,
+   "severity": null,
+   "kappa": 0.76,
+   "short_name": "Easy reorder",
+   "stage": "Basket and promo codes",
+   "team": {
+    "primary": "UX design",
+    "secondary": []
+   },
+   "n_high": 74
+  }
+ ],
+ "patterns": {
+  "problems_title": "Apple Pay failures and logouts after the update are the most raised problems",
+  "strengths_title": "Fast checkout and quick delivery are the most praised",
+  "caption": "One review can mention several problems, so the bars add up to more than the number of reviews. Apple Pay failures and support chat loops come almost entirely from 1 and 2 star reviews. Dark mode requests are different: 35 of 39 come from people who gave 3 to 5 stars, and 26 of 43 notification complaints do too."
+ },
+ "board": {
+  "long_tail_issues": 58,
+  "long_tail_reviews": 286,
+  "other_statements": 512
+ },
+ "teams": [
+  {
+   "name": "Payments and billing",
+   "n": 196,
+   "w": 8.0,
+   "lo": 7.0,
+   "hi": 9.0,
+   "primary": [
+    "pay-applepay"
+   ],
+   "secondary": []
+  },
+  {
+   "name": "Backend and platform engineering",
+   "n": 214,
+   "w": 9.0,
+   "lo": 7.9,
+   "hi": 10.1,
+   "primary": [
+    "ord-tracking",
+    "perf-product",
+    "srch-filters"
+   ],
+   "secondary": [
+    "pay-applepay"
+   ]
+  },
+  {
+   "name": "Mobile engineering",
+   "n": 182,
+   "w": 7.1,
+   "lo": 6.2,
+   "hi": 8.1,
+   "primary": [
+    "acct-logout"
+   ],
+   "secondary": [
+    "perf-product",
+    "pay-applepay"
+   ]
+  },
+  {
+   "name": "UX design",
+   "n": 123,
+   "w": 5.0,
+   "lo": 4.2,
+   "hi": 5.8,
+   "primary": [
+    "pay-fee"
+   ],
+   "secondary": []
+  },
+  {
+   "name": "Marketing and CRM",
+   "n": 127,
+   "w": 5.3,
+   "lo": 4.5,
+   "hi": 6.2,
+   "primary": [
+    "pay-promo",
+    "ntf-volume"
+   ],
+   "secondary": []
+  },
+  {
+   "name": "Customer support",
+   "n": 83,
+   "w": 3.5,
+   "lo": 2.8,
+   "hi": 4.1,
+   "primary": [
+    "sup-loop"
+   ],
+   "secondary": []
+  },
+  {
+   "name": "Content and localization",
+   "n": 41,
+   "w": 1.1,
+   "lo": 0.6,
+   "hi": 1.6,
+   "primary": [
+    "copy-german"
+   ],
+   "secondary": [
+    "pay-promo"
+   ]
+  },
+  {
+   "name": "UI and visual design",
+   "n": 39,
+   "w": 1.5,
+   "lo": 1.1,
+   "hi": 2.0,
+   "primary": [
+    "set-dark"
+   ],
+   "secondary": [
+    "copy-german"
+   ]
+  },
+  {
+   "name": "Product management",
+   "n": 37,
+   "w": 1.5,
+   "lo": 1.1,
+   "hi": 2.0,
+   "primary": [
+    "ord-address"
+   ],
+   "secondary": [
+    "pay-fee",
+    "sup-loop"
+   ]
+  },
+  {
+   "name": "QA and release",
+   "n": 0,
+   "w": 0,
+   "lo": 0,
+   "hi": 0,
+   "primary": [],
+   "secondary": [
+    "acct-logout",
+    "srch-filters"
+   ]
+  },
+  {
+   "name": "Operations and fulfilment",
+   "n": 0,
+   "w": 0,
+   "lo": 0,
+   "hi": 0,
+   "primary": [],
+   "secondary": [
+    "ord-tracking",
+    "ord-address"
+   ]
+  }
+ ],
+ "journey": {
+  "stages": [
+   {
+    "name": "Sign in",
+    "desc": "Sign-in screen and sessions",
+    "neg": 290,
+    "pos": 25,
+    "other": 60,
+    "total": 375,
+    "net": -70.7,
+    "top_problem": "acct-logout",
+    "top_strength": null,
+    "blocker": 32,
+    "source": "Listing (\"sign in with one tap\") and reviews"
+   },
+   {
+    "name": "Find groceries",
+    "desc": "Search, aisles, filters and deals",
+    "neg": 120,
+    "pos": 260,
+    "other": 80,
+    "total": 460,
+    "net": 30.4,
+    "top_problem": "srch-filters",
+    "top_strength": "s-deals",
+    "blocker": 10,
+    "source": "Listing (\"browse thousands of products\") and reviews"
+   },
+   {
+    "name": "Product page",
+    "desc": "Item details and photos",
+    "neg": 110,
+    "pos": 70,
+    "other": 40,
+    "total": 220,
+    "net": -18.2,
+    "top_problem": "perf-product",
+    "top_strength": null,
+    "blocker": 5,
+    "source": "Reviews only"
+   },
+   {
+    "name": "Basket and promo codes",
+    "desc": "Basket, reorder, discount codes",
+    "neg": 160,
+    "pos": 140,
+    "other": 45,
+    "total": 345,
+    "net": -5.8,
+    "top_problem": "pay-promo",
+    "top_strength": "s-reorder",
+    "blocker": 32,
+    "source": "Listing (\"promo codes\", \"reorder\") and reviews"
+   },
+   {
+    "name": "Checkout",
+    "desc": "Fees, Apple Pay, card payment",
+    "neg": 520,
+    "pos": 420,
+    "other": 90,
+    "total": 1030,
+    "net": -9.7,
+    "top_problem": "pay-applepay",
+    "top_strength": "s-checkout",
+    "blocker": 45,
+    "source": "Listing (\"Apple Pay\") and reviews"
+   },
+   {
+    "name": "Live delivery tracking",
+    "desc": "Map, driver status, arrival",
+    "neg": 260,
+    "pos": 390,
+    "other": 85,
+    "total": 735,
+    "net": 17.7,
+    "top_problem": "ord-tracking",
+    "top_strength": "s-delivery",
+    "blocker": 20,
+    "source": "Listing (\"track your driver live\") and reviews"
+   },
+   {
+    "name": "Help chat",
+    "desc": "In-app support chat",
+    "neg": 230,
+    "pos": 25,
+    "other": 35,
+    "total": 290,
+    "net": -70.7,
+    "top_problem": "sup-loop",
+    "top_strength": null,
+    "blocker": 43,
+    "source": "Listing (\"in-app help chat\") and reviews"
+   }
+  ],
+  "unassigned": 3449
+ },
+ "time": {
+  "weeks": [
+   "Jul 20",
+   "Jul 27",
+   "Aug 3",
+   "Aug 10",
+   "Aug 17",
+   "Aug 24",
+   "Aug 31",
+   "Sep 7",
+   "Sep 14",
+   "Sep 21",
+   "Sep 28",
+   "Oct 5",
+   "Oct 12"
+  ],
+  "n_week": [
+   47,
+   43,
+   81,
+   80,
+   105,
+   149,
+   207,
+   233,
+   298,
+   298,
+   298,
+   511,
+   628
+  ],
+  "recent_from": 9,
+  "excluded_countries": [
+   "US"
+  ],
+  "releases": [
+   {
+    "pos": 5.14,
+    "label": "v8.4 · Aug 28"
+   },
+   {
+    "pos": 10.29,
+    "label": "v8.5 · Oct 3"
+   }
+  ],
+  "series": [
+   {
+    "id": "acct-logout",
+    "pts": [
+     {
+      "t": 0,
+      "n": 47,
+      "k": 1,
+      "p": 2.13,
+      "lo": 0,
+      "hi": 6.25,
+      "countries": 1
+     },
+     {
+      "t": 1,
+      "n": 43,
+      "k": 1,
+      "p": 1.24,
+      "lo": 0,
+      "hi": 3.63,
+      "countries": 2
+     },
+     {
+      "t": 2,
+      "n": 81,
+      "k": 2,
+      "p": 2.46,
+      "lo": 0,
+      "hi": 5.84,
+      "countries": 2
+     },
+     {
+      "t": 3,
+      "n": 80,
+      "k": 2,
+      "p": 2.5,
+      "lo": 0,
+      "hi": 5.92,
+      "countries": 2
+     },
+     {
+      "t": 4,
+      "n": 105,
+      "k": 3,
+      "p": 3.15,
+      "lo": 0,
+      "hi": 6.99,
+      "countries": 3
+     },
+     {
+      "t": 5,
+      "n": 149,
+      "k": 3,
+      "p": 1.35,
+      "lo": 0,
+      "hi": 2.86,
+      "countries": 4
+     },
+     {
+      "t": 6,
+      "n": 207,
+      "k": 4,
+      "p": 1.9,
+      "lo": 0.05,
+      "hi": 3.75,
+      "countries": 4
+     },
+     {
+      "t": 7,
+      "n": 233,
+      "k": 4,
+      "p": 1.25,
+      "lo": 0.03,
+      "hi": 2.47,
+      "countries": 5
+     },
+     {
+      "t": 8,
+      "n": 298,
+      "k": 6,
+      "p": 2.0,
+      "lo": 0.41,
+      "hi": 3.59,
+      "countries": 5
+     },
+     {
+      "t": 9,
+      "n": 298,
+      "k": 4,
+      "p": 1.34,
+      "lo": 0.03,
+      "hi": 2.64,
+      "countries": 5
+     },
+     {
+      "t": 10,
+      "n": 298,
+      "k": 34,
+      "p": 11.31,
+      "lo": 7.71,
+      "hi": 14.9,
+      "countries": 5
+     },
+     {
+      "t": 11,
+      "n": 511,
+      "k": 54,
+      "p": 10.39,
+      "lo": 7.75,
+      "hi": 13.03,
+      "countries": 6
+     },
+     {
+      "t": 12,
+      "n": 628,
+      "k": 64,
+      "p": 10.11,
+      "lo": 7.76,
+      "hi": 12.47,
+      "countries": 6
+     }
+    ],
+    "earlier": 1.8,
+    "recent": 9.0,
+    "diff": 7.1,
+    "p_adj": 7.6e-14
+   },
+   {
+    "id": "pay-applepay",
+    "pts": [
+     {
+      "t": 0,
+      "n": 47,
+      "k": 2,
+      "p": 4.26,
+      "lo": 0,
+      "hi": 10.03,
+      "countries": 1
+     },
+     {
+      "t": 1,
+      "n": 43,
+      "k": 2,
+      "p": 2.47,
+      "lo": 0,
+      "hi": 5.81,
+      "countries": 2
+     },
+     {
+      "t": 2,
+      "n": 81,
+      "k": 5,
+      "p": 6.19,
+      "lo": 0.94,
+      "hi": 11.44,
+      "countries": 2
+     },
+     {
+      "t": 3,
+      "n": 80,
+      "k": 5,
+      "p": 6.26,
+      "lo": 0.95,
+      "hi": 11.56,
+      "countries": 2
+     },
+     {
+      "t": 4,
+      "n": 105,
+      "k": 6,
+      "p": 5.28,
+      "lo": 0.8,
+      "hi": 9.76,
+      "countries": 3
+     },
+     {
+      "t": 5,
+      "n": 149,
+      "k": 8,
+      "p": 3.6,
+      "lo": 1.18,
+      "hi": 6.03,
+      "countries": 4
+     },
+     {
+      "t": 6,
+      "n": 207,
+      "k": 11,
+      "p": 5.25,
+      "lo": 2.22,
+      "hi": 8.28,
+      "countries": 4
+     },
+     {
+      "t": 7,
+      "n": 233,
+      "k": 13,
+      "p": 6.08,
+      "lo": 2.06,
+      "hi": 10.11,
+      "countries": 5
+     },
+     {
+      "t": 8,
+      "n": 298,
+      "k": 17,
+      "p": 5.76,
+      "lo": 3.1,
+      "hi": 8.43,
+      "countries": 5
+     },
+     {
+      "t": 9,
+      "n": 298,
+      "k": 18,
+      "p": 6.07,
+      "lo": 3.34,
+      "hi": 8.8,
+      "countries": 5
+     },
+     {
+      "t": 10,
+      "n": 298,
+      "k": 18,
+      "p": 6.07,
+      "lo": 3.34,
+      "hi": 8.8,
+      "countries": 5
+     },
+     {
+      "t": 11,
+      "n": 511,
+      "k": 40,
+      "p": 8.01,
+      "lo": 5.63,
+      "hi": 10.39,
+      "countries": 6
+     },
+     {
+      "t": 12,
+      "n": 628,
+      "k": 51,
+      "p": 8.12,
+      "lo": 5.99,
+      "hi": 10.25,
+      "countries": 6
+     }
+    ],
+    "earlier": 5.9,
+    "recent": 6.1,
+    "diff": 0.2,
+    "p_adj": 0.76
+   },
+   {
+    "id": "pay-fee",
+    "pts": [
+     {
+      "t": 0,
+      "n": 47,
+      "k": 2,
+      "p": 4.26,
+      "lo": 0,
+      "hi": 10.03,
+      "countries": 1
+     },
+     {
+      "t": 1,
+      "n": 43,
+      "k": 1,
+      "p": 1.24,
+      "lo": 0,
+      "hi": 3.63,
+      "countries": 2
+     },
+     {
+      "t": 2,
+      "n": 81,
+      "k": 3,
+      "p": 3.72,
+      "lo": 0,
+      "hi": 7.86,
+      "countries": 2
+     },
+     {
+      "t": 3,
+      "n": 80,
+      "k": 3,
+      "p": 3.76,
+      "lo": 0,
+      "hi": 7.93,
+      "countries": 2
+     },
+     {
+      "t": 4,
+      "n": 105,
+      "k": 4,
+      "p": 3.86,
+      "lo": 0,
+      "hi": 7.94,
+      "countries": 3
+     },
+     {
+      "t": 5,
+      "n": 149,
+      "k": 6,
+      "p": 5.99,
+      "lo": 0,
+      "hi": 13.2,
+      "countries": 4
+     },
+     {
+      "t": 6,
+      "n": 207,
+      "k": 9,
+      "p": 4.45,
+      "lo": 1.6,
+      "hi": 7.3,
+      "countries": 4
+     },
+     {
+      "t": 7,
+      "n": 233,
+      "k": 10,
+      "p": 4.23,
+      "lo": 1.09,
+      "hi": 7.37,
+      "countries": 5
+     },
+     {
+      "t": 8,
+      "n": 298,
+      "k": 13,
+      "p": 4.44,
+      "lo": 2.07,
+      "hi": 6.8,
+      "countries": 5
+     },
+     {
+      "t": 9,
+      "n": 298,
+      "k": 11,
+      "p": 3.76,
+      "lo": 1.57,
+      "hi": 5.94,
+      "countries": 5
+     },
+     {
+      "t": 10,
+      "n": 298,
+      "k": 10,
+      "p": 3.46,
+      "lo": 1.35,
+      "hi": 5.57,
+      "countries": 5
+     },
+     {
+      "t": 11,
+      "n": 511,
+      "k": 24,
+      "p": 4.88,
+      "lo": 2.98,
+      "hi": 6.78,
+      "countries": 6
+     },
+     {
+      "t": 12,
+      "n": 628,
+      "k": 27,
+      "p": 4.36,
+      "lo": 2.75,
+      "hi": 5.96,
+      "countries": 6
+     }
+    ],
+    "earlier": 4.6,
+    "recent": 3.4,
+    "diff": -1.2,
+    "p_adj": 0.46
+   },
+   {
+    "id": "ord-tracking",
+    "pts": [
+     {
+      "t": 0,
+      "n": 47,
+      "k": 1,
+      "p": 2.13,
+      "lo": 0,
+      "hi": 6.25,
+      "countries": 1
+     },
+     {
+      "t": 1,
+      "n": 43,
+      "k": 2,
+      "p": 9.16,
+      "lo": 0,
+      "hi": 23.74,
+      "countries": 2
+     },
+     {
+      "t": 2,
+      "n": 81,
+      "k": 2,
+      "p": 2.46,
+      "lo": 0,
+      "hi": 5.84,
+      "countries": 2
+     },
+     {
+      "t": 3,
+      "n": 80,
+      "k": 1,
+      "p": 1.26,
+      "lo": 0,
+      "hi": 3.7,
+      "countries": 2
+     },
+     {
+      "t": 4,
+      "n": 105,
+      "k": 3,
+      "p": 3.15,
+      "lo": 0,
+      "hi": 6.99,
+      "countries": 3
+     },
+     {
+      "t": 5,
+      "n": 149,
+      "k": 3,
+      "p": 1.35,
+      "lo": 0,
+      "hi": 2.86,
+      "countries": 4
+     },
+     {
+      "t": 6,
+      "n": 207,
+      "k": 3,
+      "p": 1.46,
+      "lo": 0,
+      "hi": 3.1,
+      "countries": 4
+     },
+     {
+      "t": 7,
+      "n": 233,
+      "k": 10,
+      "p": 4.18,
+      "lo": 1.06,
+      "hi": 7.31,
+      "countries": 5
+     },
+     {
+      "t": 8,
+      "n": 298,
+      "k": 13,
+      "p": 4.38,
+      "lo": 2.04,
+      "hi": 6.72,
+      "countries": 5
+     },
+     {
+      "t": 9,
+      "n": 298,
+      "k": 11,
+      "p": 3.7,
+      "lo": 1.55,
+      "hi": 5.86,
+      "countries": 5
+     },
+     {
+      "t": 10,
+      "n": 298,
+      "k": 5,
+      "p": 1.71,
+      "lo": 0.22,
+      "hi": 3.19,
+      "countries": 5
+     },
+     {
+      "t": 11,
+      "n": 511,
+      "k": 17,
+      "p": 3.49,
+      "lo": 1.87,
+      "hi": 5.12,
+      "countries": 6
+     },
+     {
+      "t": 12,
+      "n": 628,
+      "k": 27,
+      "p": 4.29,
+      "lo": 2.71,
+      "hi": 5.88,
+      "countries": 6
+     }
+    ],
+    "earlier": 3.7,
+    "recent": 2.5,
+    "diff": -1.2,
+    "p_adj": 0.68
+   },
+   {
+    "id": "pay-promo",
+    "pts": [
+     {
+      "t": 0,
+      "n": 47,
+      "k": 1,
+      "p": 2.13,
+      "lo": 0,
+      "hi": 6.25,
+      "countries": 1
+     },
+     {
+      "t": 1,
+      "n": 43,
+      "k": 1,
+      "p": 1.24,
+      "lo": 0,
+      "hi": 3.63,
+      "countries": 2
+     },
+     {
+      "t": 2,
+      "n": 81,
+      "k": 2,
+      "p": 2.46,
+      "lo": 0,
+      "hi": 5.84,
+      "countries": 2
+     },
+     {
+      "t": 3,
+      "n": 80,
+      "k": 3,
+      "p": 3.76,
+      "lo": 0,
+      "hi": 7.93,
+      "countries": 2
+     },
+     {
+      "t": 4,
+      "n": 105,
+      "k": 4,
+      "p": 3.86,
+      "lo": 0,
+      "hi": 7.94,
+      "countries": 3
+     },
+     {
+      "t": 5,
+      "n": 149,
+      "k": 6,
+      "p": 5.99,
+      "lo": 0,
+      "hi": 13.2,
+      "countries": 4
+     },
+     {
+      "t": 6,
+      "n": 207,
+      "k": 5,
+      "p": 2.36,
+      "lo": 0.31,
+      "hi": 4.4,
+      "countries": 4
+     },
+     {
+      "t": 7,
+      "n": 233,
+      "k": 5,
+      "p": 2.56,
+      "lo": 0,
+      "hi": 5.36,
+      "countries": 5
+     },
+     {
+      "t": 8,
+      "n": 298,
+      "k": 8,
+      "p": 2.74,
+      "lo": 0.86,
+      "hi": 4.61,
+      "countries": 5
+     },
+     {
+      "t": 9,
+      "n": 298,
+      "k": 6,
+      "p": 2.08,
+      "lo": 0.43,
+      "hi": 3.72,
+      "countries": 5
+     },
+     {
+      "t": 10,
+      "n": 298,
+      "k": 8,
+      "p": 2.74,
+      "lo": 0.86,
+      "hi": 4.61,
+      "countries": 5
+     },
+     {
+      "t": 11,
+      "n": 511,
+      "k": 16,
+      "p": 3.27,
+      "lo": 1.69,
+      "hi": 4.84,
+      "countries": 6
+     },
+     {
+      "t": 12,
+      "n": 628,
+      "k": 24,
+      "p": 3.85,
+      "lo": 2.34,
+      "hi": 5.36,
+      "countries": 6
+     }
+    ],
+    "earlier": 3.1,
+    "recent": 2.5,
+    "diff": -0.6,
+    "p_adj": 0.68
+   }
+  ]
+ },
+ "quotes": [
+  {
+   "issue_id": "pay-applepay",
+   "text": "Apple Pay spins forever then says payment failed. Had to use my card.",
+   "translation": null,
+   "review_id": "US-48211",
+   "stars": 1,
+   "version": "8.5",
+   "country": "US"
+  },
+  {
+   "issue_id": "acct-logout",
+   "text": "Nach dem Update ständig abgemeldet und muss mich jedes Mal neu anmelden.",
+   "translation": "Constantly logged out after the update and have to sign in again every time.",
+   "review_id": "DE-07756",
+   "stars": 1,
+   "version": "8.5",
+   "country": "DE"
+  },
+  {
+   "issue_id": "pay-fee",
+   "text": "The delivery fee only shows up when you're about to pay.",
+   "translation": null,
+   "review_id": "GB-20118",
+   "stars": 2,
+   "version": "8.4",
+   "country": "GB"
+  },
+  {
+   "issue_id": "ord-tracking",
+   "text": "Map stuck on 'driver nearby' for 40 minutes.",
+   "translation": null,
+   "review_id": "US-47902",
+   "stars": 2,
+   "version": "8.5",
+   "country": "US"
+  },
+  {
+   "issue_id": "pay-promo",
+   "text": "Code from your own email doesn't work and there's no explanation.",
+   "translation": null,
+   "review_id": "US-48530",
+   "stars": 1,
+   "version": "8.5",
+   "country": "US"
+  },
+  {
+   "issue_id": "sup-loop",
+   "text": "The chat bot sends the same three answers in a circle.",
+   "translation": null,
+   "review_id": "GB-21377",
+   "stars": 1,
+   "version": "8.5",
+   "country": "GB"
+  },
+  {
+   "issue_id": "s-checkout",
+   "text": "Checkout takes like 10 seconds, love it.",
+   "translation": null,
+   "review_id": "US-47390",
+   "stars": 5,
+   "version": "8.5",
+   "country": "US"
+  },
+  {
+   "issue_id": "s-delivery",
+   "text": "Ordered at 6, groceries here by 6:40.",
+   "translation": null,
+   "review_id": "US-48177",
+   "stars": 5,
+   "version": "8.5",
+   "country": "US"
+  },
+  {
+   "issue_id": "s-design",
+   "text": "Très claire et facile à utiliser, même pour mes parents.",
+   "translation": "Very clear and easy to use, even for my parents.",
+   "review_id": "FR-11305",
+   "stars": 5,
+   "version": "8.4",
+   "country": "FR"
+  },
+  {
+   "issue_id": "s-deals",
+   "text": "Prices beat the supermarket most weeks.",
+   "translation": null,
+   "review_id": "AU-15102",
+   "stars": 5,
+   "version": "8.4",
+   "country": "AU"
+  }
+ ],
+ "reliability": {
+  "gates": [
+   {
+    "status": "pass",
+    "text": "Statements with no issue: 7.4% (limit 15%)"
+   },
+   {
+    "status": "pass",
+    "text": "Overall κ = 0.81 (limit 0.70)"
+   },
+   {
+    "status": "pass",
+    "text": "Quotes not found in review: 89; 81 fixed on retry, 8 removed"
+   },
+   {
+    "status": "flag",
+    "text": "2 issues below κ 0.70: search filters (0.69), change address (0.62)"
+   },
+   {
+    "status": "pass",
+    "text": "Report audit: 214 numbers checked against the data, 0 mismatches"
+   }
+  ],
+  "limits": [
+   "At most 500 reviews per country: US covers 14 days, Australia 94 days.",
+   "Labels are an AI's reading of the text. Interval widths do not include labeling error.",
+   "Ratings without a written review are not included."
+  ]
+ },
+ "glossary_examples": {
+  "stratified_share": "Apple Pay payment fails: 8.0% of reviews. Counted without weights it is 6.6% (196 of 2,978); the weighted share is higher because the US, which has the most ratings, raises it most often (10.4%).",
+  "ci": "Apple Pay (6.7 to 9.4%) and logged out after update (5.9 to 8.4%) overlap, so the data cannot say which of the two is raised more. Fast checkout (8.5 to 11.5%) and search filters (1.5 to 3.0%) do not overlap: that difference is clear.",
+  "mean_median_mode": "Reviews raising Apple Pay failures: mean 1.31★, median 1, mode 1. Almost all of them give one star.",
+  "sd": "Stars on Apple Pay reviews have SD 0.62, tightly grouped. On too many notifications, SD 1.21: these reviewers give anything from 1 to 5 stars.",
+  "cv": "Across the six countries, logged out after update has CV 24% (raised evenly everywhere). German text has CV 245% (concentrated in one country).",
+  "rating_gap": "Apple Pay −2.08★: reviews mentioning it average 1.31★, the rest 3.39★. Wants dark mode +0.57★: reviewers asking for it tend to like the app.",
+  "cohens_d": "Apple Pay d = −1.6 (very large). Too many notifications d = −0.27 (small).",
+  "net_sentiment": "Sign in −71: for every positive statement about sign in there are about 12 negative ones. Find groceries +30.",
+  "blocker_share": "At checkout, 45% of problem statements describe a blocker, the highest of any stage. On the product page, 5%.",
+  "cmh": "Logged out after update: 1.8% of reviews in earlier weeks vs 9.0% in the last four, adjusted p < 0.001. The other four changes (−1.2 to +0.2 points) could be chance.",
+  "holm": "Applied to the 5 over-time tests and the 12 country tests. Below 0.05 after adjustment counts as a significant difference.",
+  "chi_square": "German text: V = 0.26, p < 0.001, a real country difference. Support chat loops: V = 0.05, p = 0.17, no evidence of a difference.",
+  "kappa": "Overall κ = 0.81. Cannot change address after ordering has κ = 0.62, so its count is less certain and it is flagged."
+ },
+ "workflow": {
+  "steps": [
+   {
+    "actor": "code",
+    "title": "Found the app and read its listing",
+    "text": "Searched \"ShopNest\": 4 matches. Picked id1690042117 (1,084,000 ratings; the next match has 3,200). Read the listing: Shopping category, 6 features named in the description, notes for 3 releases."
+   },
+   {
+    "actor": "code",
+    "title": "Chose countries",
+    "text": "Looked up rating counts in 50 countries. Kept US, GB, DE, FR, CA, AU: 83.5% of all ratings."
+   },
+   {
+    "actor": "code",
+    "title": "Collected reviews",
+    "text": "60 feed pages, 2,987 reviews. 9 duplicates removed, 2,978 kept."
+   },
+   {
+    "actor": "ai",
+    "title": "Split into statements",
+    "text": "2,978 reviews became 6,912 statements in 120 batches. Each got an issue phrase, a where-in-the-app phrase, type, feeling and severity."
+   },
+   {
+    "actor": "code",
+    "title": "Checked quotes",
+    "text": "89 statements quoted words not in the review. 81 fixed on retry, 8 removed: 6,904 kept."
+   },
+   {
+    "actor": "code",
+    "title": "Grouped phrases",
+    "text": "6,904 phrases, 3,118 distinct. Embeddings and clustering formed 211 groups."
+   },
+   {
+    "actor": "ai",
+    "title": "Named issues and built the app's structure",
+    "text": "211 groups became 75 issues. From the issues, the where-in-the-app phrases and the listing, the agent formed 11 categories and a 7-stage journey; 6 stages match a listing feature. Each issue got a likely owning team."
+   },
+   {
+    "actor": "ai",
+    "title": "Confirmed labels",
+    "text": "Every statement checked against the issue list and the journey. 402 moved to a better issue, 512 set to other."
+   },
+   {
+    "actor": "ai",
+    "title": "Second pass",
+    "text": "691 statements (10%) labeled again with a different prompt. κ = 0.81."
+   },
+   {
+    "actor": "code",
+    "title": "Computed statistics",
+    "text": "Stratified shares, intervals and tests for 17 issues, 11 categories, 7 stages, 13 weeks and 6 countries."
+   },
+   {
+    "actor": "ai",
+    "title": "Wrote and audited",
+    "text": "Text written around the numbers. 214 numbers checked against the data, 0 mismatches. Run time 24 min 10 s."
+   }
+  ],
+  "funnel": [
+   {
+    "label": "Issue phrases written",
+    "n": 6904
+   },
+   {
+    "label": "Distinct phrases",
+    "n": 3118
+   },
+   {
+    "label": "Clusters",
+    "n": 211
+   },
+   {
+    "label": "Named issues",
+    "n": 75
+   },
+   {
+    "label": "Recurring issues",
+    "n": 17
+   }
+  ]
+ }
+}

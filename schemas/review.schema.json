@@ -1,0 +1,54 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "review",
+ "type": "object",
+ "properties": {
+  "review_id": {
+   "type": "string",
+   "pattern": "^[A-Z]{2}-\\w+$"
+  },
+  "country": {
+   "type": "string",
+   "pattern": "^[A-Z]{2}$"
+  },
+  "rating": {
+   "type": "integer",
+   "minimum": 1,
+   "maximum": 5
+  },
+  "title": {
+   "type": "string"
+  },
+  "body": {
+   "type": "string"
+  },
+  "language": {
+   "type": "string"
+  },
+  "app_version": {
+   "type": "string"
+  },
+  "version_inferred": {
+   "type": "boolean"
+  },
+  "date": {
+   "type": "string",
+   "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+  },
+  "author_hash": {
+   "type": "string"
+  }
+ },
+ "required": [
+  "review_id",
+  "country",
+  "rating",
+  "title",
+  "body",
+  "language",
+  "app_version",
+  "date",
+  "author_hash"
+ ],
+ "additionalProperties": false
+}

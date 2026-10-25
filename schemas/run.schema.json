@@ -1,0 +1,69 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "run",
+ "type": "object",
+ "properties": {
+  "input": {
+   "type": "object",
+   "properties": {
+    "app": {
+     "type": "string"
+    },
+    "country": {
+     "type": [
+      "string",
+      "null"
+     ]
+    },
+    "overrides": {
+     "type": "object"
+    }
+   },
+   "required": [
+    "app"
+   ],
+   "additionalProperties": true
+  },
+  "app": {
+   "type": "object"
+  },
+  "countries": {
+   "type": "array"
+  },
+  "settings": {
+   "type": "object"
+  },
+  "models": {
+   "type": "object"
+  },
+  "prompts": {
+   "type": "object"
+  },
+  "steps": {
+   "type": "object"
+  },
+  "counts": {
+   "type": "object"
+  },
+  "gates": {
+   "type": "object"
+  },
+  "template": {
+   "type": "object"
+  },
+  "started": {
+   "type": "string"
+  },
+  "finished": {
+   "type": [
+    "string",
+    "null"
+   ]
+  }
+ },
+ "required": [
+  "input",
+  "settings"
+ ],
+ "additionalProperties": true
+}

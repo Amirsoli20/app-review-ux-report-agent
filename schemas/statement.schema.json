@@ -1,0 +1,121 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "statement",
+ "type": "object",
+ "properties": {
+  "statement_id": {
+   "type": "string"
+  },
+  "review_id": {
+   "type": "string"
+  },
+  "text_span": {
+   "type": "string",
+   "minLength": 1
+  },
+  "translation": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "issue_phrase": {
+   "type": "string",
+   "minLength": 1
+  },
+  "location_phrase": {
+   "type": "string",
+   "minLength": 1
+  },
+  "issue_id": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "stage_id": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "statement_type": {
+   "enum": [
+    "Bug report",
+    "Complaint",
+    "Feature request",
+    "Praise",
+    "Question",
+    "Comparison",
+    "Other"
+   ]
+  },
+  "sentiment": {
+   "enum": [
+    "Positive",
+    "Negative",
+    "Neutral",
+    "Mixed"
+   ]
+  },
+  "severity": {
+   "enum": [
+    "Blocker",
+    "Major",
+    "Minor",
+    "Cosmetic",
+    null
+   ]
+  },
+  "ux_dimension": {
+   "enum": [
+    "Usability",
+    "Reliability",
+    "Performance",
+    "Visual design",
+    "Content and copy",
+    "Functionality",
+    "Trust and safety",
+    "Value and pricing",
+    "Support",
+    "Accessibility"
+   ]
+  },
+  "confidence": {
+   "type": "number",
+   "minimum": 0,
+   "maximum": 1
+  },
+  "group_id": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "proposed_issue": {
+   "type": [
+    "string",
+    "null"
+   ]
+  },
+  "second_pass": {
+   "type": [
+    "object",
+    "null"
+   ]
+  }
+ },
+ "required": [
+  "statement_id",
+  "review_id",
+  "text_span",
+  "issue_phrase",
+  "location_phrase",
+  "statement_type",
+  "sentiment",
+  "severity",
+  "ux_dimension",
+  "confidence"
+ ],
+ "additionalProperties": true
+}
